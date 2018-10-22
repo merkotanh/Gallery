@@ -1,0 +1,25 @@
+%h2 Edit category
+= form_for @category do |f|
+  - if @category.errors.any?
+    - @category.errors.full_messages.each do |msg|
+      .alert.alert-danger= msg
+  .form-group
+    = f.label :name
+    = f.text_field :name, class:'form-control'
+  %br/
+  = f.submit 'Submit', class:'btn btn-light'
+  = link_to 'Cancel', categories_path, class:'btn btn-light btn-default'
+  / link_to 'Delete', categories_destroy_path, class:'delete', method: :delete, data: {confirm: 'Are you sure?'}
+%br/
+
+%h3
+  Images in #{@category.name}
+
+- if @images.exists?
+  - @images.each_slice(4) do |image|
+    .row
+      - image.each do |image|
+        .col-lg-4
+          /%div= image_tag image.image_url, style: 'height:180px;width:auto;'
+          %div= image_tag image.image_url(:thumb)
+          %center= link_to 'Delete', image_path(image), class:'delete', method: :delete, data: {confirm: 'Are you sure?'}

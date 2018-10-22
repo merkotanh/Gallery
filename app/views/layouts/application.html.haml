@@ -1,0 +1,48 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title Gallery
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+  %body
+    .container
+    %nav.navbar.navbar-expand-lg.navbar-light.bg-light
+      %ul.navbar-nav
+        %li.nav-item.active
+          %a.nav-link{:href => "#"}
+            Home
+        %li.nav-item
+          = link_to 'Images', images_path, class: 'nav-link'
+        - if user_signed_in?
+          %li.nav-item
+            = link_to 'Upload Image', upload_path, class: 'nav-link'
+          %li.nav-item
+            = link_to 'Add Category', new_category_path, class: 'nav-link'
+        %li.nav-item
+          %a.nav-link{:href => "#"} Comments
+        %li.nav-item.dropdown
+          %a#navbarDropdownMenuLink.nav-link.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown"}
+            Categories
+          .dropdown-menu
+            - @categoryNav.each do |category|
+              %a.dropdown-item{:href => category_path(category.id)} 
+                = category.name
+      %ul.nav.navbar-nav.ml-auto.justify-content-end        
+        - if user_signed_in?
+          %li.nav-item
+            = link_to 'Sign out', destroy_user_session_path, method: :delete, class: 'nav-link'
+        - else
+          %li.nav-item
+            = link_to 'Sign in', new_user_session_path, class: 'nav-link'
+          %li.nav-item
+            = link_to 'Register', new_user_registration_path, class: 'nav-link'
+
+    .container
+      - if flash[:notice]
+        .alert.alert_success= flash[:notice]
+      - if flash[:alert]
+        .alert.alert_danger= flash[:alert]
+      = yield

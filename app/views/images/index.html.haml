@@ -1,0 +1,13 @@
+%h1 All Images
+- if @images.exists?
+  - @images.each_slice(3) do |image|
+    .row
+      - image.each do |image|
+        .col-lg-4
+          = link_to image.image_title, image_path(image)
+          = link_to image_tag(image.image_url(:large)), image_path(image)
+          %div= image.image_description
+
+          %p
+            Submitted by
+            = image.user.email

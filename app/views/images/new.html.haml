@@ -1,0 +1,19 @@
+%h1 Upload Image
+= form_for @image, :html => {:multipart => true} do |f|
+  - if @image.errors.any?
+    - @image.errors.full_messages.each do |msg|
+      .alert.alert-danger= msg
+  .form-group
+    = f.label :image_title
+    = f.text_field :image_title, class:'form-control'
+  .form-group
+    = f.label :category
+    = f.select :category_id, Category.all.collect {|x| [x.name, x.id]}, {:include_blank => 'Select One'}, class:'form-control'
+  .form-group
+    = f.label :image_description
+    = f.text_area :image_description, class:'form-control'
+  .form-group
+    = f.label :image
+    = f.file_field :image
+  = f.submit 'Submit', class:'btn btn-light'
+  = link_to 'Cancel', images_path, class:'btn btn-light'

@@ -1,0 +1,13 @@
+%h1= @category.name
+%small.pull-right
+  = link_to 'Edit', edit_category_path
+  = link_to 'Delete', category_path, class:'delete', method: :delete, data: {confirm: 'Are you sure?'}
+- if @images.exists?
+  - @images.each_slice(3) do |image|
+    .row
+      - image.each do |image|
+        .col-lg-4
+          %div= image.image_title
+          /%img= image_tag image.image_url, style: 'height:180px;width:240px;'
+          %div= image_tag image.image_url(:large)
+          %div= image.image_description
