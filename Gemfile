@@ -36,6 +36,8 @@ gem 'jbuilder', '~> 2.5'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'bootstrap', '~> 4.1.3'
+#gem 'bootstrap-sass', '~> 3.2.0'
+
 gem 'jquery-rails'
 
 gem 'activeadmin'
@@ -47,6 +49,11 @@ gem 'mini_magick'
 gem 'haml'
 gem 'haml-rails', '~> 1.0'
 gem 'acts_as_votable', '~> 0.10.0'
+#Masonry is a dynamic grid layout plugin for jQuery. 
+#so, it's for styling
+gem 'masonry-rails'
+#for like button
+gem 'font-awesome-sass', '~> 5.4.1' 
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

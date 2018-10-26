@@ -1,2 +1,23 @@
-%h1 Images#show
-%p Find me in app/views/images/show.html.haml
+#image_show.row
+  .col-md-8.col-md-offset-2
+    /.panel.panel-default
+    /  .panel-heading.image_image
+    %h2
+      = @image.image_title
+    = image_tag @image.image_url(:large)
+    /  .panel-body
+    = link_to like_image_path(@image), class: "like-btn", method: :put, remote: :true do
+      %span
+        %i.fa.fa-thumbs-up
+        %span.likes-count= @image.get_upvotes.size
+      /.panel-footer
+    .row
+      .col-md-6
+        %h2 Comments
+        %p
+        = render @image.comments
+
+    %h2 Add a comment:
+    = render 'comments/form'
+    %h3
+    = link_to 'Back to Pics', images_path
