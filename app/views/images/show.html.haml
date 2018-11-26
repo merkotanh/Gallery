@@ -1,23 +1,37 @@
-#image_show.row
+.row
   .col-md-8.col-md-offset-2
-    /.panel.panel-default
-    /  .panel-heading.image_image
-    %h2
-      = @image.image_title
-    = image_tag @image.image_url(:large)
-    /  .panel-body
-    = link_to like_image_path(@image), class: "like-btn", method: :put, remote: :true do
-      %span
-        %i.fa.fa-thumbs-up
-        %span.likes-count= @image.get_upvotes.size
-      /.panel-footer
-    .row
-      .col-md-6
-        %h2 Comments
-        %p
-        = render @image.comments
+    .panel.panel-default
+      .panel-heading
+        %h1= @image.image_title
+      .panel-body
+        .row
+          = image_tag @image.image_url(:large), class:"img-fluid", class:'rounded'
+        .row
+          .col-md-6.col-md-offset-2
+            = link_to like_image_path(@image), class: "like-btn", method: :put, remote: :true do
+              %span
+                %i.fa.fa-heart
+                /%i.fa.fa-thumbs-up.3x
+              %span.likes-count= @image.get_upvotes.size
+          .col-md-6
+            Submitted by
+            - if user_signed_in?
+              = link_to @image.category.user.username, user_path(@image.category.user.id)
+            - else
+              = @image.category.user.username
 
-    %h2 Add a comment:
+            - if @image.category.user == current_user
+              = link_to "Edit", edit_image_path, class: "btn btn-default"
+              = link_to "Delete", image_path(@image), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-default"
+      .panel-footer
+        .row
+          = @image.image_description
+
+%br
+.row
+  .col-md-8.col-md-offset-4
+    = render @image.comments
+
+    %h4 Add a comment:
     = render 'comments/form'
-    %h3
     = link_to 'Back to Pics', images_path

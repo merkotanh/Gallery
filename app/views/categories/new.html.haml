@@ -1,11 +1,4 @@
-%h1 Add new Category
-= form_for @category do |f|
-  - if @category.errors.any?
-    - @category.errors.full_messages.each do |msg|
-      .alert.alert-danger= msg
-  .form-group
-    = f.label :name
-    = f.text_field :name, class:'form-control'
-  %br/
-  = f.submit 'Submit', class:'btn btn-light'
-  = link_to 'Cancel', categories_path, class:'btn btn-light'
+%h1 
+  = I18n.t('categories.new.title')
+/Add new Category
+= render 'shared/edit_categories'

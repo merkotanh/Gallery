@@ -1,0 +1,24 @@
+.h1 Edit Profile
+= form_for @user, html: { multipart: true } do |f|
+  .form-group
+    = f.label :username
+    = f.text_field :username, class:'form-control'
+  .form-group  
+    = f.label :avatar
+    = f.file_field :avatar, class:'form-control'
+  .form-group
+    = f.label :first_name
+    = f.text_field :first_name, class:'form-control'
+  .form-group
+    = f.label :last_name
+    = f.text_field :last_name, class:'form-control'
+  .form-group
+    = f.label 'birthday'
+    = f.date_field :birthday, class:'form-control'
+  .form-group
+    = f.label :about
+    = f.text_area  :about, class:'form-control'
+  .actions
+    = f.submit 'Save changes', class:'btn btn-light'
+/ = flash[:recaptcha_error]
+/ = recaptcha_tags :ajax => true

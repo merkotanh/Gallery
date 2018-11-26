@@ -3,3 +3,7 @@
   "private": true,
   "dependencies": {}
 }
+
+"scripts": {
+  "start": "set HTTPS=true&&react-scripts start"
+}

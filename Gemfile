@@ -24,11 +24,6 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
-# Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
-
-# Use ActiveStorage variant
-# gem 'mini_magick', '~> 4.8'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
@@ -36,12 +31,24 @@ gem 'jbuilder', '~> 2.5'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'bootstrap', '~> 4.1.3'
-#gem 'bootstrap-sass', '~> 3.2.0'
+gem 'bootstrap-sass', '~> 3.2.0'
 
 gem 'jquery-rails'
 
+gem 'kaminari'
 gem 'activeadmin'
-gem 'devise'
+gem 'devise', '~> 4.5'
+gem 'friendly_id', '~> 5.1'
+
+gem 'omniauth'
+gem 'omniauth-facebook'
+gem 'omniauth-twitter'
+#gem 'omniauth-gplus'
+gem 'omniauth-oauth2', '~> 1.3.1' #works with omniauth-google-oauth2  ????? not sure
+gem 'omniauth-google-oauth2', '~> 0.4.1' #works only with omniauth-oauth2   ????? not sure
+
+gem 'omniauth-linkedin'
+gem 'omniauth-github', '~> 1.1', '>= 1.1.2'
 
 gem 'carrierwave', '~> 1.0'
 gem 'mini_magick'
@@ -51,13 +58,16 @@ gem 'haml-rails', '~> 1.0'
 gem 'acts_as_votable', '~> 0.10.0'
 #Masonry is a dynamic grid layout plugin for jQuery. 
 #so, it's for styling
-gem 'masonry-rails'
+gem 'masonry-rails', '~> 0.2.4'
 #for like button
-gem 'font-awesome-sass', '~> 5.4.1' 
+gem 'font-awesome-sass', '~> 5.4.1'
+
+gem 'recaptcha', require: 'recaptcha/rails'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'dotenv-rails'
 end
 
 group :development do

@@ -1,0 +1,15 @@
+ru:
+  activerecord:
+    models:
+      image:
+      category:
+          one: 'Название категории'
+          other: 'Название категории'
+    attributes:
+      image:
+        image_title: 'Название изображения'
+        image_description: 'Описание'
+      category:
+        name:
+          one: 'Название категории'
+          other: 'Название категории'

@@ -1,0 +1,14 @@
+#images.transitions-enabled
+  - if @categories.exists?
+    - @categories.each do |category|
+      .box.panel.panel-default 
+        .panel-heading
+          = link_to category.name, category_path(category) #(user_id:@user.id)
+        .panel-body
+          - if category.images.exists?
+            = link_to category.top_image(category).image_title, category_path(category)
+            = link_to category_path(category) do
+              = image_tag category.top_image(category).image_url(:thumb), class:'rounded'
+        .panel-footer
+          submitted by
+          = link_to category.user.username, user_path(category.user)

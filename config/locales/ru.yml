@@ -1,0 +1,23 @@
+ru:
+  time:
+   formats:
+     long: "%Y-%m-%d %H:%M:%S"
+  categories:
+    categories: 'Категории'
+    new:
+      title: 'Новая категория'
+    add: 'Добавить категорию'
+    choose: 'Выбрать категорию'
+  images:
+    edit_image_description: 'Изменить описание изображения'
+    images: 'Изображения'
+    upload_image: 'Загрузить изображение'
+  profile: 'профиль'
+  signout: 'Войти'
+  signin: 'Выйти'
+  register: 'Зарегистрироваться'
+  en: 'англ'
+  ru: 'рус'
+  submit: 'Принять'
+  cancel: 'Отменить'
+  submitted_by: 'отправитель '

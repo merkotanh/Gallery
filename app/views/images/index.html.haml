@@ -1,12 +1,1 @@
-%h1 All Images
-- if @images.exists?
-  - @images.each_slice(3) do |image|
-    .row
-      - image.each do |image|
-        .col-lg-4
-          .panel.panel-default
-            = link_to image_tag(image.image_url(:thumb)), image_path(image)
-            = link_to image.image_title, image_path(image)
-            /%span.likes-count= @image.get_upvotes.size
-            /%div= image.image_description
-            /%div= image.user.email
+= render 'shared/show_pics'

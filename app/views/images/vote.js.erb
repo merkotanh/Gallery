@@ -1,0 +1,6 @@
+<% if current_user.liked? @image %>
+  $('.like-btn').addClass('liked');
+<% else %>
+  $('.like-btn').removeClass('like-btn');
+<% end %>
+$('.likes-count').html("<%= @image.get_upvotes.size %>")

@@ -1,0 +1,4 @@
+= link_to 'Back', admin_ng_path, class:'text-secondary'
+%br
+- @images.each do |img|
+  = image_tag(img[:src], alt: 'img')

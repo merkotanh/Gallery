@@ -1,5 +1,4 @@
 class Image < ApplicationRecord
-  acts_as_votable
   belongs_to :category
   has_many :comments, dependent: :destroy
 
@@ -9,6 +8,8 @@ class Image < ApplicationRecord
 
   validates_processing_of :image
   validate :image_size_validatio
+  
+  acts_as_votable 
 
   private
     def update_image_attributes

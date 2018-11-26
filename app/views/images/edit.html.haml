@@ -1,0 +1,18 @@
+.row
+  .col-md-8.col-md-offset-2
+    %h1 
+      = t('images.edit_image_description')
+    - if @image.errors.any?
+      - @image.errors.full_messages.each do |msg|
+        .alert.alert-danger= msg
+    = form_for @image do |f|
+      .panel.panel-default
+        .panel-heading
+          .form-group
+            = image_tag @image.image_url(:thumb), class:"img-fluid", class:'rounded'
+          %br
+            = f.label :image_title
+            = f.text_area :image_description, class:'form-control'
+        .panel-footer
+          = f.submit t('submit'), class:'btn btn-light'
+          = link_to t('cancel'), categories_path, class:'btn btn-light'

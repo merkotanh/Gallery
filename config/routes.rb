@@ -1,46 +1,37 @@
 Rails.application.routes.draw do
+
+  ActiveAdmin.routes(self)
+  devise_for :users, only: :omniauth_callbacks, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
+  devise_for :admin_users, ActiveAdmin::Devise.config
+
+  match "/admin/ng" => 'admin/ng', via: :post
+
+  scope "(:locale)", locale: /#{I18n.available_locales.join("|")}/ do
+    
+    devise_for :users, skip: :omniauth_callbacks, controllers: { registrations: 'users/registrations' }
+#    devise_for :users, skip: :omniauth_callbacks, controllers: { registrations: 'users/registrations', sessions: 'users/sessions' }
+
+    resources :images, :categories
+    resources :users, only: [:show, :edit, :update]
   
-  devise_for :users
-
-  get "upload" => "images#new", :as => "upload"
-
-  get 'comments/show'
-  get 'comments/create'
-  get 'comments/edit'
-  get 'comments/destroy'
-  get 'images/index'
-  get 'images/show'
-
-  get 'images/new'
-  get 'images/create'
-  get 'images/update'
-  get 'images/destroy'
-  get 'images/show'
-  get 'images/index'
-
-  get 'categories/new'
-  get 'categories/create'
-  get 'categories/edit'
-  get 'categories/update'
-  get 'categories/destroy'
-  get 'categories/show'
-
-  resources :images, :categories
-  
-  resources :images do
-    member do
-      put 'like', to: "images#vote"
+    resources :images do
+      member do
+        put 'like', to: "images#vote"
+      end
     end
-  end
   
-  resources :users do
-    resources :categories
-  end
- 
-  resources :users 
-  resources :images do
-    resources :comments
-  end
+    resources :users do
+      resources :categories
+    end
 
-  root to: "images#index" # здесь надо изменить на images#index
+    resources :friendships, only: [:create, :destroy]
+ 
+    resources :users
+    resources :images do
+      resources :comments
+    end
+
+    get "upload" => "images#new", :as => "upload"
+    root to: "categories#index"
+  end
 end

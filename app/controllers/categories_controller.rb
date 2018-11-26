@@ -1,39 +1,40 @@
 class CategoriesController < ApplicationController
+
+  before_action :find_category, only: [:show, :edit, :update, :destroy] 
+  before_action :all_categories, only: [:index, :show, :edit]
+
   def index
-    @categories = Category.all
   end
 
   def show
-    @category = Category.find(params[:id])
-    @categories = Category.all
     @images = @category.images
   end
 
   def new
-#    @category = Category.new
     @category = current_user.categories.build
   end
 
   def create
-   @category = current_user.categories.build(category_params)
+    @category = current_user.categories.build(category_params)
+    
     if @category.save
+      @image = @category.images.build
       flash[:notice] = 'Category created'
-      redirect_to root_path
+      render 'images/new'
     else
       render 'new'
     end
   end
 
   def edit
-    @category = Category.find(params[:id])
-    @categories = Category.all
     @images = @category.images
+    render 'edit'
   end
 
   def update
-    @category = Category.find(params[:id])
-
     if @category.update(category_params)
+      #@category.find_followers(current_user)
+      current_user.find_followers(@category)
       flash[:notice] = 'Category updated'
       redirect_to category_path(params[:id])
     else
@@ -42,15 +43,27 @@ class CategoriesController < ApplicationController
   end
 
   def destroy
-    @category = Category.find(params[:id])
-    @category.destroy
-    flash[:notice] = 'Category removed'
+    if @category.user.email == current_user.email
+      @category.destroy
+      flash[:notice] = 'Category destroyed successfully'
+    else
+      flash[:notice] = "Only category's author has permission to delete the category"
+    end
 
     redirect_to images_path
   end
 
   private
+
+    def all_categories
+      @categories = Category.all
+    end
+
     def category_params
       params.require(:category).permit(:name)
+    end
+
+    def find_category
+      @category = Category.find(params[:id])
     end
 end

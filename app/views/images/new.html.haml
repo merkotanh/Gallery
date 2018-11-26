@@ -9,6 +9,7 @@
   .form-group
     = f.label :category
     = f.select :category_id, Category.all.collect {|x| [x.name, x.id]}, {:include_blank => 'Select One'}, class:'form-control'
+    /= f.select :category_id, Category.all.collect {|x| [x.name, x.id]}, {:include_blank :category.name}, class:'form-control'
   .form-group
     = f.label :image_description
     = f.text_area :image_description, class:'form-control'

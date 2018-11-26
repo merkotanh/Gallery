@@ -1,0 +1,10 @@
+en:
+  activerecord:
+    models:
+      image:
+    category:
+        name: 'Category name'
+    attributes:
+      image:
+        image_title: 'Image title'
+        image_description: 'Image description'

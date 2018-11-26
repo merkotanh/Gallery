@@ -7,36 +7,48 @@
     = csp_meta_tag
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+    %script{:src => "https://www.google.com/recaptcha/api.js"}
+
   %body
-    .container
     %nav.navbar.navbar-expand-lg.navbar-light.bg-light
       %ul.navbar-nav
-        %li.nav-item.active
-          %a.nav-link{:href => "#"}
-            Home
         %li.nav-item
-          = link_to 'Images', images_path, class: 'nav-link'
+          = link_to I18n.t('categories.categories'), categories_path, class: 'nav-link'
+        %li.nav-item
+          = link_to I18n.t('images.images'), images_path, class: 'nav-link'
         - if user_signed_in?
           %li.nav-item
-            = link_to 'Upload Image', upload_path, class: 'nav-link'
+            = link_to I18n.t('images.upload_image'), upload_path, class: 'nav-link'
           %li.nav-item
-            = link_to 'Add Category', new_category_path, class: 'nav-link'
+            = link_to I18n.t('categories.add'), new_category_path, class: 'nav-link'
+
         %li.nav-item.dropdown
-          %a#navbarDropdownMenuLink.nav-link.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown"}
-            Categories
+          %a#navbarDropdownMenuLink.nav-link.dropdown-toggle{"aria-expanded" => "false", :href => "/", "aria-haspopup" => "true", "data-toggle" => "dropdown"}
+            = I18n.t('categories.choose')
           .dropdown-menu
             - @categoryNav.each do |category|
               %a.dropdown-item{:href => category_path(category.id)} 
                 = category.name
-      %ul.nav.navbar-nav.ml-auto.justify-content-end        
+      %ul.nav.navbar-nav.ml-auto.justify-content-end
         - if user_signed_in?
           %li.nav-item
-            = link_to 'Sign out', destroy_user_session_path, method: :delete, class: 'nav-link'
+            = link_to "#{current_user.username}'s #{I18n.t('profile')}", current_user, class: 'nav-link'
+          - if current_user.avatar.url != nil
+            %li.nav-item
+              = image_tag current_user.avatar.url(:thumbnail), class: 'rounded-circle'  
+
+          %li.nav-item
+            = link_to I18n.t('signin'), destroy_user_session_path, method: :delete, class: 'nav-link'
         - else
           %li.nav-item
-            = link_to 'Sign in', new_user_session_path, class: 'nav-link'
+            = link_to I18n.t('signout'), new_user_session_path, class: 'nav-link'
           %li.nav-item
-            = link_to 'Register', new_user_registration_path, class: 'nav-link'
+            = link_to I18n.t('register'), new_user_registration_path, class: 'nav-link'
+          
+        %li{:class => "nav-item#{" active" if I18n.locale == :en}"}
+          = link_to I18n.t('en'), {locale: :en}, class: 'nav-link'
+        %li{:class => "nav-item#{" active" if I18n.locale == :ru}"}
+          = link_to I18n.t('ru'), {locale: :ru}, class: 'nav-link'
 
     .container
       - if flash[:notice]

@@ -1,0 +1,10 @@
+- user.categories.each do |categories|
+  -categories.images.each do |image|
+    .box.panel.panel-default
+      .panel.panel-default
+        .panel-heading
+          = image.image_title
+        .panel-body
+          = link_to image_tag(image.image_url(:thumb)), image_path(image), class:'rounded',  relative: true
+          %p 
+          = image.image_description
