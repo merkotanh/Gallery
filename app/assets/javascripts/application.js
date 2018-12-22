@@ -17,6 +17,7 @@
 //= require jquery_ujs
 //= require activestorage
 //= require masonry/jquery.masonry
+//= require jquery.masonry.min.js
 //= require turbolinks
 //= require popper
 //= require_tree .
