@@ -12,23 +12,24 @@
   %body
     %nav.navbar.navbar-expand-lg.navbar-light.bg-light
       %ul.navbar-nav
+        %a.navbar-brand{ href: "/"} Gallery
+        %li.nav-item.dropdown
+          %a#navbarDropdownMenuLink.nav-link.dropdown-toggle{"aria-expanded" => "true", href: categories_path, "aria-haspopup" => "true", "data-toggle" => "dropdown"}
+            = I18n.t('categories.all_categories')
+          .dropdown-menu
+            = link_to I18n.t('categories.all_categories'), categories_path, class: 'nav-link'
+            .dropdown-divider
+            - @categoryNav.each do |category|
+              %a.dropdown-item{ href: category_path(category.id)} 
+                = category.name
         %li.nav-item
-          = link_to I18n.t('categories.categories'), categories_path, class: 'nav-link'
-        %li.nav-item
-          = link_to I18n.t('images.images'), images_path, class: 'nav-link'
+          = link_to I18n.t('images.all_images'), images_path, class: 'nav-link'
         - if user_signed_in?
           %li.nav-item
             = link_to I18n.t('images.upload_image'), upload_path, class: 'nav-link'
           %li.nav-item
             = link_to I18n.t('categories.add'), new_category_path, class: 'nav-link'
 
-        %li.nav-item.dropdown
-          %a#navbarDropdownMenuLink.nav-link.dropdown-toggle{"aria-expanded" => "false", :href => "/", "aria-haspopup" => "true", "data-toggle" => "dropdown"}
-            = I18n.t('categories.choose')
-          .dropdown-menu
-            - @categoryNav.each do |category|
-              %a.dropdown-item{:href => category_path(category.id)} 
-                = category.name
       %ul.nav.navbar-nav.ml-auto.justify-content-end
         - if user_signed_in?
           %li.nav-item

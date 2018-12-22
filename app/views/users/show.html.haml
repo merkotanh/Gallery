@@ -1,11 +1,11 @@
 .row
-  .col-12.col-md-2
+  .col-12.col-md-3
     .box.panel.panel-default
       .panel.panel-heading
         %h1
           = @user.username
       .panel.panel-body
-        = image_tag @user.avatar.url(:thumb), class:'rounded' if @user.avatar?
+        = image_tag @user.avatar.url(:profile), class:'rounded' if @user.avatar?
         = @user.first_name
         = @user.last_name
       .panel.panel-footer
@@ -13,31 +13,28 @@
         %br
         = link_to 'Edit', edit_user_path(@user)
         %br
-        = @user.id
-        - if user_signed_in?
-          = current_user.id
         %br
         - if user_signed_in? && current_user != @user
           - if current_user.following?(@user)
-            %button{:class => "btn btn-default"} Unfollow
-            = button_to 'Unfollow', friendships_path(user_id:@user.id), method: :delete, class:'btn btn-light'
+            / = link_to 'Unfollow', friendship_path(user_id:@user.id), method: :delete, class:'btn btn-light'
+            = button_to 'Unfollow', friendship_path(user_id:@user.id), method: :delete, class:'btn btn-light'
           - else
-            %button{:class => "btn btn-primary"} Follow
             = button_to 'Follow', friendships_path(user_id:@user.id), class:'btn btn-light'
         %br
           - if @user.following.any?
             - @u.each do |user|
               - user.categories.each do |category|
-                = link_to category.name, category_path(id:category.id)
-                = link_to user.username, user_path(id:user.id)
+                = link_to "Pics category:  #{category.name}", category_path(id:category.id)
+                %br
+                = link_to "User's profile: #{user.username}", user_path(id:user.id)
 
-  .col-12.col-md-4.offset-1
-    MY
+  .col-12.col-md-5
+    %h5.text-center MY Pics
     #images.transitions-enabled
-      = render(:partial => 'show_pics', :locals => {:user => @user})
-  .col-12.col-md-4.offset-1
-    THEIR's
-    #images.transitions-enabled
+      = render(partial: 'show_pics', locals: { user: @user})
+  .col-12.col-md-4
+    %h5.text-center Following User's Pics
     - if @user.following.any?
       - @u.each do |user|
-        = render(:partial => 'show_pics', :locals => {:user => user})     
+        #images.transitions-enabled
+          = render(partial: 'show_pics', locals: { user: user})

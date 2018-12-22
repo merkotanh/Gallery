@@ -6,14 +6,14 @@ class User < ApplicationRecord
   
   #before_save :update_slug
 
-  has_many :user_authentications
-
-  acts_as_voter
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :omniauthable, :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  acts_as_voter
+
+  has_many :user_authentications, dependent: :destroy
   has_many :categories, dependent: :destroy
   has_many :images, through: :categories
   has_many :comments, dependent: :destroy
@@ -25,6 +25,7 @@ class User < ApplicationRecord
   has_many :followers, through: :passive_friendships, source: :follower
 
   validates :username, presence:true
+  validates :email, presence:true, uniqueness: true, format: { with: /\A.+@.+\..+\z/ }
 
   mount_uploader :avatar, ImageUploader
 
@@ -59,7 +60,7 @@ class User < ApplicationRecord
 
   def find_followers(category_or_image_update)
     users_following = User.find followers.ids if followers.ids.any? #include
-    MyMailer.some_changes_in_follow(users_following).deliver_now
+    MyMailer.some_changes_in_follow(users_following).deliver_now if users_following != nil
     #MyMailer.with(user: u).welcome_email.deliver_now
 
     #    users_following.each do |recipient|

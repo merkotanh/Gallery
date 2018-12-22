@@ -11,9 +11,6 @@ class UsersController < ApplicationController
   def edit
   end
   
-  def index
-  end
-
   def update
     set_user
     if @user.update(user_params)

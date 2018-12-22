@@ -31,3 +31,6 @@
 /config/master.key
 
 /config/secrets.yml
+
+/spec/features/*
+/public/uploads/tmp/*

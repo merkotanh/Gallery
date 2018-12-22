@@ -256,10 +256,10 @@ ActiveAdmin.setup do |config|
   # Pagination is enabled by default for all resources.
   # You can control the default per page count for all resources here.
   #
-  # config.default_per_page = 30
+  config.default_per_page = 20
   #
   # You can control the max per page count too.
-  #
+  
   # config.max_per_page = 10_000
 
   # == Filters
@@ -290,4 +290,7 @@ ActiveAdmin.setup do |config|
   # You can inherit it with own class and inject it for all resources
   #
   # config.order_clause = MyOrderClause
+end
+ActiveAdmin.register ActivityLog do
+  config.per_page = 10 
 end

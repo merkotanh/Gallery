@@ -8,9 +8,11 @@ ru:
       title: 'Новая категория'
     add: 'Добавить категорию'
     choose: 'Выбрать категорию'
+    all_categories: 'Все категории'
   images:
     edit_image_description: 'Изменить описание изображения'
     images: 'Изображения'
+    all_images: 'Все изображения'
     upload_image: 'Загрузить изображение'
   profile: 'профиль'
   signout: 'Войти'

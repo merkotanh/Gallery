@@ -1,4 +1,5 @@
 class PasswordsController < Devise::PasswordsController
+  
   prepend_before_action :check_captcha#, only: [:create]
 
   private

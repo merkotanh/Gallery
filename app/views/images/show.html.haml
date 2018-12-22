@@ -5,7 +5,7 @@
         %h1= @image.image_title
       .panel-body
         .row
-          = image_tag @image.image_url(:large), class:"img-fluid", class:'rounded'
+          = image_tag @image.image_url(:large), class:'img-fluid rounded'
         .row
           .col-md-6.col-md-offset-2
             = link_to like_image_path(@image), class: "like-btn", method: :put, remote: :true do

@@ -5,9 +5,11 @@ en:
       title: 'New Category'
     add: 'Add category'
     choose: 'Choose a category'
+    all_categories: 'All categories'
   images:
     edit_image_description: 'Edit image description'
     images: 'Images'
+    all_images: 'All images'
     upload_image: 'Upload Image'
   profile: 'profile'
   signout: 'Sign in'
@@ -18,6 +20,11 @@ en:
   submit: 'Submit'
   cancel: 'Cancel'
   submitted_by: 'submitted by'
+  faker:
+    name:
+      username: 'юзер'
+    name:
+      email: 'емэйл'
 
 # Files in the config/locales directory are used for internationalization
 # and are automatically loaded by Rails. If you want to use locales other

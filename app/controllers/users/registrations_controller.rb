@@ -1,5 +1,4 @@
 class Users::RegistrationsController < Devise::RegistrationsController
-  skip_before_action :authenticate_user!
 
   prepend_before_action :check_captcha, only: [:create]
 

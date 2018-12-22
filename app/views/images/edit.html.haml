@@ -9,7 +9,7 @@
       .panel.panel-default
         .panel-heading
           .form-group
-            = image_tag @image.image_url(:thumb), class:"img-fluid", class:'rounded'
+            = image_tag @image.image_url(:thumb), class:'img-fluid rounded'
           %br
             = f.label :image_title
             = f.text_area :image_description, class:'form-control'

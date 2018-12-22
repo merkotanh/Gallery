@@ -4,11 +4,16 @@ class ImagesController < ApplicationController
   after_action :mail_to_user, only: [:create, :update, :destroy]
   respond_to :js, :json, :html
 
-  def new
-    @image = Image.new
+  def index
+    @images = Image.all
+    @categories = Category.all
   end
 
   def show
+  end
+
+  def new
+    @image = Image.new
   end
 
   def create
@@ -41,12 +46,7 @@ class ImagesController < ApplicationController
     else
       flash[:notice] = "Only picture's author could delete the picture"
     end
-    redirect_back(fallback_location: root_path)
-  end
-
-  def index
-    @images = Image.all
-    @categories = Category.all
+    redirect_to root_path
   end
 
   def vote

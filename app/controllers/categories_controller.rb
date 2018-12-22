@@ -1,5 +1,5 @@
 class CategoriesController < ApplicationController
-
+  before_action :authenticate_user!, except: [:index, :show]
   before_action :find_category, only: [:show, :edit, :update, :destroy] 
   before_action :all_categories, only: [:index, :show, :edit]
 

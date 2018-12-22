@@ -7,6 +7,6 @@
         .panel-body
           = link_to image.image_title, image_path(image)
           = link_to image_path(image) do
-            = image_tag image.image_url(:thumb), class:'rounded'
+            = image_tag image.image_url(:thumb), class:'img-fluid rounded'
           = link_to "#{t('submitted_by')} #{image.category.user.username}", user_path(image.category.user)
           

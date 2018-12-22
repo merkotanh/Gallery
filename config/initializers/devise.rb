@@ -296,7 +296,7 @@ Devise.setup do |config|
 
   config.omniauth :google_oauth2 , '220730185094-cbksl1sn95j7edpusv0cfpj9pqep4kth.apps.googleusercontent.com' ,'QEe2o-kQ69hqJtzNuMtvehVc', {}
   
-  config.omniauth :github , '52907d2ba33b1e630df6' , '07e81e91426e0a4c4566f83e0698ca59413fab14', :scope => 'user:email'
+  config.omniauth :github , '52907d2ba33b1e630df6' , '07e81e91426e0a4c4566f83e0698ca59413fab14',{}# :scope => 'user:email'
 
   #pinterest '5000422706162717406', '83bee2ba622f9ff82844357436f848913a258172b5a89fb7bfcb8406f2c2d0a8'
 end

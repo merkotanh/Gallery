@@ -2,9 +2,20 @@ ru:
   activerecord:
     models:
       image:
+        one: 'Изображение'
+        other: 'Изображение'
       category:
-          one: 'Название категории'
-          other: 'Название категории'
+        one: 'Название категории'
+        other: 'Название категории'
+      user:
+        one: 'Пользователь'
+        other: 'Пользователи'
+      activity_log:
+        one: 'Активность пользователей'
+        other: 'Активность пользователей'
+      admin_user:
+        one: 'Администратор'
+        other: 'Администраторы'
     attributes:
       image:
         image_title: 'Название изображения'
@@ -13,3 +24,14 @@ ru:
         name:
           one: 'Название категории'
           other: 'Название категории'
+      user:
+        email: 'почта'
+        encrypted_password: 'пароль'
+        reset_password_token: 'пароль'
+        first_name: 'Имя'
+        last_name: 'Фамилия'
+        username: 'Имя'
+        about: 'О себе'
+        birthday: 'Дата рождения'
+        avatar: 'Фото'
+        slug: 'slug'

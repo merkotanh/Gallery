@@ -1,11 +1,11 @@
 class Category < ApplicationRecord
   belongs_to :user
   has_many :images, dependent: :destroy
-  validates :name, presence: true
+  validates :name, presence: true#, uniqueness: true
 
 
-  def top_image(category)
-    category.images.order(:cached_votes_up => :desc).first
+  def top_image
+    images.order(:cached_votes_up => :desc).first
   end
 
   def find_followers(user)
