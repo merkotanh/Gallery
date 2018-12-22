@@ -6,8 +6,13 @@
           = @user.username
       .panel.panel-body
         = image_tag @user.avatar.url(:profile), class:'rounded' if @user.avatar?
+        %br
         = @user.first_name
         = @user.last_name
+        %br
+        = @user.id
+        %br
+        = current_user.id
       .panel.panel-footer
         = @user.email
         %br

@@ -5,14 +5,16 @@
     - if @image.errors.any?
       - @image.errors.full_messages.each do |msg|
         .alert.alert-danger= msg
-    = form_for @image do |f|
-      .panel.panel-default
-        .panel-heading
-          .form-group
-            = image_tag @image.image_url(:thumb), class:'img-fluid rounded'
-          %br
-            = f.label :image_title
-            = f.text_area :image_description, class:'form-control'
-        .panel-footer
-          = f.submit t('submit'), class:'btn btn-light'
-          = link_to t('cancel'), categories_path, class:'btn btn-light'
+
+    = form_for @image, :html => {:multipart => true} do |f|
+      = image_tag @image.image_url(:thumb), class:'img-fluid rounded'
+      %br
+      .form-group
+        = f.label :image
+        = f.file_field :image, class:'form-control'
+      .form-group
+        = f.label :image_title
+        = f.text_area :image_description, class:'form-control'
+      .form-group
+        = f.submit t('submit'), class:'btn btn-light'
+        = link_to t('cancel'), categories_path, class:'btn btn-light'
