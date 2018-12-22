@@ -34,3 +34,4 @@
 
 /spec/features/*
 /public/uploads/tmp/*
+/public/uploads/*
