@@ -66,4 +66,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 group :production do
   # gem 'pg', '~> 1.1', '>= 1.1.3'
   gem 'rails_12factor', '~> 0.0.3'
+  gem 'fog', '~> 1.38'
+  gem 'fog-aws', '~> 2.0.1'
 end
