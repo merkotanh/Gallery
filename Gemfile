@@ -37,7 +37,6 @@ gem 'font-awesome-sass', '~> 5.4.1'
 gem 'recaptcha', require: 'recaptcha/rails'
 gem 'figaro'
 
-# gem "aws-sdk-s3", require: false
 gem 'fog-aws'
 
 group :development, :test do
