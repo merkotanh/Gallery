@@ -35,7 +35,7 @@ gem 'acts_as_votable', '~> 0.10.0'
 gem 'masonry-rails', '~> 0.2.4'
 gem 'font-awesome-sass', '~> 5.4.1'
 gem 'recaptcha', require: 'recaptcha/rails'
-
+gem 'figaro'
 
 
   gem 'fog-aws'
