@@ -8,7 +8,7 @@ Rails.application.routes.draw do
 
   scope "(:locale)", locale: /#{I18n.available_locales.join("|")}/ do
     
-    devise_for :users, skip: :omniauth_callbacks, controllers: { registrations: 'users/registrations' }
+    devise_for :users, skip: :omniauth_callbacks#, controllers: { registrations: 'users/registrations' }
     # devise_for :users, skip: :omniauth_callbacks, controllers: { registrations: 'users/registrations', sessions: 'users/sessions' }
 
     resources :images, :categories
