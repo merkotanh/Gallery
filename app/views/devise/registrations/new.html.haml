@@ -33,8 +33,8 @@
     = f.label :about
     = f.text_area :about, class: "form-control"
     
-  = flash[:recaptcha_error]
-  = recaptcha_tags :ajax => true
+  / = flash[:recaptcha_error]
+  / = recaptcha_tags :ajax => true
 
   .actions
     = f.submit "Sign up", class: "btn btn-light"
