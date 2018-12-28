@@ -59,7 +59,7 @@ class ImagesController < ApplicationController
         @image.unliked_by current_user
       end
     end
-    redirect_to image_path    
+    # redirect_to image_path    
   end
 
   private
