@@ -39,4 +39,4 @@ production:
   <<: *default
   database: gallery_production
   username: developer
-  password: pguser
+  password: 

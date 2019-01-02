@@ -19,7 +19,7 @@
 //= require jquery.turbolinks
 //= require masonry/jquery.masonry
 //= require jquery.masonry.min.js
-//= require masonry/jquery.imagesloaded.min
+
 
 //= require turbolinks
 //= require popper
