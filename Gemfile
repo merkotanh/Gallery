@@ -18,7 +18,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'bootstrap', '~> 4.1.3'
 gem 'bootstrap-sass', '~> 3.2.0'
 gem 'jquery-rails'
-gem 'kaminari'
+
 gem 'activeadmin'
 gem 'devise', '~> 4.5'
 gem 'friendly_id', '~> 5.1'
@@ -27,12 +27,16 @@ gem 'omniauth-facebook'
 gem 'omniauth-oauth2', '~> 1.3.1'
 gem 'omniauth-google-oauth2', '~> 0.4.1'
 gem 'omniauth-github', '~> 1.1', '>= 1.1.2'
+
 gem 'carrierwave', '~> 1.2.1'
 gem 'mini_magick'
+
 gem 'haml'
-gem 'haml-rails', '~> 1.0'
+
 gem 'acts_as_votable', '~> 0.10.0'
 gem 'masonry-rails', '~> 0.2.4'
+gem 'jquery-turbolinks'
+
 gem 'font-awesome-sass', '~> 5.4.1'
 gem 'recaptcha', require: 'recaptcha/rails'
 gem 'figaro'
