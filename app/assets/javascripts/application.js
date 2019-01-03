@@ -14,11 +14,9 @@
 //= require jquery
 //= require bootstrap-sprockets
 //= require rails-ujs
-//= require jquery_ujs
 //= require activestorage
 //= require jquery.turbolinks
 //= require masonry/jquery.masonry
-//= require jquery.masonry.min.js
 
 
 //= require turbolinks
