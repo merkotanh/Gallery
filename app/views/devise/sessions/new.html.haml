@@ -15,9 +15,9 @@
       = f.label :remember_me
     
   .actions
-    = f.submit "Log in", class: "btn btn-light"
+    = f.submit "Log in", class: "btn btn-primary"
   
-  / = flash[:recaptcha_error]
-  / = recaptcha_tags :ajax => true
+    / = flash[:recaptcha_error]
+    / = recaptcha_tags :ajax => true
 
-= render "devise/shared/links"
+    = render "devise/shared/links"

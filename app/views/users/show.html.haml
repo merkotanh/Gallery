@@ -9,10 +9,6 @@
         %br
         = @user.first_name
         = @user.last_name
-        %br
-        = @user.id
-        %br
-        = current_user.id
       .panel.panel-footer
         = @user.email
         %br
@@ -21,7 +17,6 @@
         %br
         - if user_signed_in? && current_user != @user
           - if current_user.following?(@user)
-            / = link_to 'Unfollow', friendship_path(user_id:@user.id), method: :delete, class:'btn btn-light'
             = button_to 'Unfollow', friendship_path(user_id:@user.id), method: :delete, class:'btn btn-light'
           - else
             = button_to 'Follow', friendships_path(user_id:@user.id), class:'btn btn-light'

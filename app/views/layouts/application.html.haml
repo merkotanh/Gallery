@@ -12,46 +12,49 @@
     %script{:src => "https://www.google.com/recaptcha/api.js"}
 
   %body
-    %nav.navbar.navbar-expand-md.navbar-light.bg-light
-      %ul.navbar-nav
-        %a.navbar-brand{ href: "/"} Gallery
-        %li.nav-item.dropdown
-          %a#navbarDropdownMenuLink.nav-link.dropdown-toggle{"aria-expanded" => "true", href: categories_path, "aria-haspopup" => "true", "data-toggle" => "dropdown"}
-            = I18n.t('categories.all_categories')
-          .dropdown-menu
-            = link_to I18n.t('categories.all_categories'), categories_path, class: 'nav-link'
-            .dropdown-divider
-            - @categoryNav.each do |category|
-              %a.dropdown-item{ href: category_path(category.id)} 
-                = category.name
-        %li.nav-item
-          = link_to I18n.t('images.all_images'), images_path, class: 'nav-link'
-        - if user_signed_in?
-          %li.nav-item
-            = link_to I18n.t('images.upload_image'), upload_path, class: 'nav-link'
-          %li.nav-item
-            = link_to I18n.t('categories.add'), new_category_path, class: 'nav-link'
+    %nav.navbar.navbar-expand-lg.navbar-light.bg-light.sticky-top
+      %button.navbar-toggler{"aria-controls" => "navbar1", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-target" => "#navbar1", "data-toggle" => "collapse", :type => "button"}
 
-      %ul.nav.navbar-nav.ml-auto.justify-content-end
-        - if user_signed_in?
+      #navbar1.collapse.navbar-collapse
+        %ul.navbar-nav.mr-auto
+          %a.navbar-brand{ href: "/"} Gallery
+          %li.nav-item.dropdown
+            %a#navbarDropdownMenuLink.nav-link.dropdown-toggle{"aria-expanded" => "true", href: categories_path, "aria-haspopup" => "true", "data-toggle" => "dropdown"}
+              = I18n.t('categories.all_categories')
+            .dropdown-menu
+              = link_to I18n.t('categories.all_categories'), categories_path, class: 'nav-link'
+              .dropdown-divider
+              - @categoryNav.each do |category|
+                %a.dropdown-item{ href: category_path(category.id)} 
+                  = category.name
           %li.nav-item
-            = link_to "#{current_user.username}'s #{I18n.t('profile')}", current_user, class: 'nav-link'
-          - if current_user.avatar.url != nil
+            = link_to I18n.t('images.all_images'), images_path, class: 'nav-link'
+          - if user_signed_in?
             %li.nav-item
-              = image_tag current_user.avatar.url(:thumbnail), class: 'rounded-circle'  
+              = link_to I18n.t('images.upload_image'), upload_path, class: 'nav-link'
+            %li.nav-item
+              = link_to I18n.t('categories.add'), new_category_path, class: 'nav-link'
 
-          %li.nav-item
-            = link_to I18n.t('signin'), destroy_user_session_path, method: :delete, class: 'nav-link'
-        - else
-          %li.nav-item
-            = link_to I18n.t('signout'), new_user_session_path, class: 'nav-link'
-          %li.nav-item
-            = link_to I18n.t('register'), new_user_registration_path, class: 'nav-link'
+        %ul.nav.navbar-nav.ml-auto.justify-content-end
+          - if user_signed_in?
+            %li.nav-item
+              = link_to "#{current_user.username}'s #{I18n.t('profile')}", current_user, class: 'nav-link'
+            - if current_user.avatar.url != nil
+              %li.nav-item
+                = image_tag current_user.avatar.url(:thumbnail), class: 'rounded-circle'  
+
+            %li.nav-item
+              = link_to I18n.t('signin'), destroy_user_session_path, method: :delete, class: 'nav-link'
+          - else
+            %li.nav-item
+              = link_to I18n.t('signout'), new_user_session_path, class: 'nav-link'
+            %li.nav-item
+              = link_to I18n.t('register'), new_user_registration_path, class: 'nav-link'
           
-        %li{:class => "nav-item#{" active" if I18n.locale == :en}"}
-          = link_to I18n.t('en'), {locale: :en}, class: 'nav-link'
-        %li{:class => "nav-item#{" active" if I18n.locale == :ru}"}
-          = link_to I18n.t('ru'), {locale: :ru}, class: 'nav-link'
+          %li{:class => "nav-item#{" active" if I18n.locale == :en}"}
+            = link_to I18n.t('en'), {locale: :en}, class: 'nav-link'
+          %li{:class => "nav-item#{" active" if I18n.locale == :ru}"}
+            = link_to I18n.t('ru'), {locale: :ru}, class: 'nav-link'
 
     .container
       - if flash[:notice]

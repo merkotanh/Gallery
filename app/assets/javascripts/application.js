@@ -11,13 +11,13 @@
 // about supported directives.
 //
 
-//= require jquery
-//= require bootstrap-sprockets
-//= require rails-ujs
-//= require activestorage
-//= require jquery.turbolinks
-//= require masonry/jquery.masonry
+//= require jquery3
 
+//= require masonry/jquery.masonry
+//= require jquery_ujs
+//= require activestorage
+
+//= require bootstrap-sprockets
 
 //= require turbolinks
 //= require popper

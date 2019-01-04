@@ -11,24 +11,37 @@
  * It is generally better to create a new file per style scope.
 
 
+*= require 'masonry/basic'
+*= require 'masonry/centered'
+*= require 'masonry/fluid'
+*= require 'masonry/gutters'
 *= require 'masonry/infinitescroll'
 *= require 'masonry/transitions'
- */
+
+*= require_self
+*/
 
 @import "bootstrap";
 @import "font-awesome-sprockets";
 @import "font-awesome";
 
+body {
+  background: #F7F7F7;
+  font-size: 16px;
+  font-family: "Comic Sans MS", cursive, sans-serif
+}
 
 nav {
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.22);
+  font-family: Helvetica, sans-serif
 }
 
 a {
-    color: #474747;
+  text-decoration: none;
+  font-size: 14px;
+  color: #7B8478;
     &:hover {
-    text-decoration: none;
-    color: #474747;
+      color: #474747;
   }
 }
 
@@ -37,7 +50,7 @@ a {
   margin: 0 auto;
   width: 100%;
   .box {
-      background-color: #EFF2EC;
+      background-color: #F8FEF2;
 	  margin: 10px;
 	  width: 350px;
 	  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.22);
@@ -57,7 +70,7 @@ a {
 	  }
 	  .user {
 	  	font-size: 12px;
-	  	border-top: 1px solid #EAEAEA;
+
 			padding: 15px;
 			margin: 0;
 	  }

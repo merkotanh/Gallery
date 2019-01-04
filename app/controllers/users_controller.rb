@@ -1,34 +1,28 @@
 class UsersController < ApplicationController
-  before_action :authenticate_user!, only: [:edit, :update]
+  before_action :authenticate_user!
   before_action :set_friendly_user, except: [:update, :index]
 
   def show
     @user = User.friendly.find(params[:id])
-    @u = User.find(@user.following.ids)     # за кем следует текущий юзер
-    #@folls = @user.followed.ids            # за кем следую я
+    @u = User.find(@user.following.ids)
   end
 
   def edit
   end
   
   def update
-    set_user
-    if @user.update(user_params)
-      redirect_to @user
+    if current_user.update(user_params)
+      redirect_to current_user
     else
       flash.now[:alert] = 'Please try again'
       render :edit
     end
   end
-
+  
   private
 
     def set_friendly_user
       @user = User.friendly.find(params[:id])
-    end
-
-    def set_user
-      @user = User.find_by(id:current_user.id)
     end
 
     def user_params
