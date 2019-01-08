@@ -3,7 +3,6 @@ class Category < ApplicationRecord
   has_many :images, dependent: :destroy
   validates :name, presence: true#, uniqueness: true
 
-
   def top_image
     images.order(:cached_votes_up => :desc).first
   end

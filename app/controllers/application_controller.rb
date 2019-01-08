@@ -16,7 +16,7 @@ class ApplicationController < ActionController::Base
     end
 
     def get_category_nav
-      @categoryNav = Category.all
+      @categoryNav = Category.limit(5).order('id desc')
     end
 
     def record_activity(note = 'default')
