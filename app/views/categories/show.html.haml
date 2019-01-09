@@ -1,7 +1,7 @@
 %h1= @category.name
 %small.pull-right
+- if current_user == @category.user
   = link_to 'Edit the category', edit_category_path, class:'btn btn-light'
   = link_to 'Delete the category', category_path, class:'delete btn btn-light', method: :delete, data: {confirm: 'Are you sure?'}
-  /, class:'btn btn-light'
   = link_to 'Add image to the category', upload_path, class:'btn btn-light'
 = render 'shared/show_pics'

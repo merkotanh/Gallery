@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   before_action :set_locale
   before_action :configure_permitted_parameters, if: :devise_controller?
 
-  #before_action :record_activity
+  before_action :record_activity
 
   private
     def set_locale
@@ -21,12 +21,14 @@ class ApplicationController < ActionController::Base
 
     def record_activity(note = 'default')
       @activity = ActivityLog.new
-      @activity.user_id = current_user.id
+      if current_user
+        @activity.user_id = current_user.id 
+        @activity.action = current_user.email
+      end
       @activity.note =  "#{request.host}:#{request.port}#{request.fullpath}"
       @activity.browser = request.env['HTTP_USER_AGENT']
       @activity.ip_address = request.env['REMOTE_ADDR']
-      @activity.controller = controller_name 
-      @activity.action = current_user.email 
+      @activity.controller = controller_name
       @activity.params = params
       @activity.save
     end
