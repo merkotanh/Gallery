@@ -13,8 +13,7 @@ class Image < ApplicationRecord
 
   private
     def update_image_attributes
-      if image.present? # && image.changed?
-      #  self.image_content_type = image.file.image_content_type
+      if image.present?
         self.image_file_size = image.file.size	
       end
     end

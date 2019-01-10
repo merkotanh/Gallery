@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   before_action :set_locale
   before_action :configure_permitted_parameters, if: :devise_controller?
 
-  before_action :record_activity
+  # before_action :record_activity
 
   private
     def set_locale
@@ -24,6 +24,9 @@ class ApplicationController < ActionController::Base
       if current_user
         @activity.user_id = current_user.id 
         @activity.action = current_user.email
+      else
+        @activity.user_id = 0 
+        @activity.action = 'guest'
       end
       @activity.note =  "#{request.host}:#{request.port}#{request.fullpath}"
       @activity.browser = request.env['HTTP_USER_AGENT']
@@ -38,7 +41,7 @@ class ApplicationController < ActionController::Base
     def configure_permitted_parameters
       devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name, :username, :birthday, :email, :password, :remember_me])
       devise_parameter_sanitizer.permit(:sign_in, keys: [:email, :password, :remember_me])
-      devise_parameter_sanitizer.permit(:account_update, keys: [:first_name, :last_name, :username, :birthday, :about, :email, :password, :remember_me])
+      devise_parameter_sanitizer.permit(:account_update, keys: [:first_name, :last_name, :username, :birthday, :email, :password, :remember_me])
     end
 
 end

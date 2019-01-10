@@ -29,13 +29,10 @@
   .form-group
     = f.label :birthday
     = f.date_field :birthday, autocomplete: "birthday", class: "form-control"
-  .form-group
-    = f.label :about
-    = f.text_area :about, class: "form-control"
     
   = flash[:recaptcha_error]
   = recaptcha_tags
-
+  %br
   .actions
     = f.submit "Sign up", class: "btn btn-primary"
     = render "devise/shared/links"

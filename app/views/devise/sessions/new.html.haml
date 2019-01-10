@@ -17,5 +17,6 @@
   .actions
     = flash[:recaptcha_error]
     = recaptcha_tags
+    %br
     = f.submit "Log in", class: "btn btn-primary"
     = render "devise/shared/links"

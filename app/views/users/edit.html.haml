@@ -15,10 +15,5 @@
   .form-group
     = f.label 'birthday'
     = f.date_field :birthday, class:'form-control'
-  .form-group
-    = f.label :about
-    = f.text_area  :about, class:'form-control'
   .actions
     = f.submit 'Save changes', class:'btn btn-light'
-/ = flash[:recaptcha_error]
-/ = recaptcha_tags :ajax => true
