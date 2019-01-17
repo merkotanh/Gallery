@@ -4,7 +4,7 @@ class User < ApplicationRecord
   extend FriendlyId
   friendly_id :slug_add, use: :slugged
 
-  devise :database_authenticatable, :registerable, :confirmable,
+  devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :omniauthable, omniauth_providers: %i[github google_oauth2 facebook]
 
   acts_as_voter
