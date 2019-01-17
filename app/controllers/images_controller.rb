@@ -5,7 +5,7 @@ class ImagesController < ApplicationController
   respond_to :js, :json, :html
 
   def index
-    @images = Image.order(created_at: :asc).page(params[:page]).per(18)
+    @images = Image.order(created_at: :asc)#.page(params[:page]).per(18)
     @categories = Category.all
   end
 
