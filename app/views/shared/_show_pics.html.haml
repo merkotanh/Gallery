@@ -1,4 +1,4 @@
-#images.transitions-enabled
+#images.transitions-enabled.infinite-scroll.clearfix
   - if @images.exists?
     - @images.each do |image|
       .box.panel.panel-default
@@ -9,4 +9,6 @@
             = image_tag image.image_url(:thumb), class:'img-fluid rounded'
         .panel-footer
           = link_to "#{t('submitted_by')} #{image.category.user.username}", user_path(image.category.user)
-          
+= paginate @images
+%nav#page-nav{:style => "display: none;"}
+  %a{ href: "/?p=2"}

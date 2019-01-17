@@ -1,5 +1,9 @@
+require 'resque/server'
+
 Rails.application.routes.draw do
 
+  mount Resque::Server.new, at: "/resque"
+  
   ActiveAdmin.routes(self)
   devise_for :users, only: :omniauth_callbacks, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
   devise_for :admin_users, ActiveAdmin::Devise.config

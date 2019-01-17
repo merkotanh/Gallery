@@ -14,7 +14,9 @@
 //= require jquery3
 
 //= require masonry/jquery.masonry
+//= require masonry/jquery.infinitescroll.min
 //= require jquery_ujs
+
 //= require activestorage
 
 //= require bootstrap-sprockets

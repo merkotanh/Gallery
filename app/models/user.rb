@@ -3,8 +3,6 @@ class User < ApplicationRecord
 
   extend FriendlyId
   friendly_id :slug_add, use: :slugged
-  
-  # before_save :update_slug
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :omniauthable, omniauth_providers: %i[github google_oauth2 facebook]
@@ -39,14 +37,6 @@ class User < ApplicationRecord
     end
   end
 
-  # def self.new_with_session(params, session)
-  #   super.tap do |user|
-  #     if data = session["devise.facebook_data"] && session["devise.facebook_data"]["extra"]["raw_info"]
-  #       user.email = data["email"] if user.email.blank?
-  #     end
-  #   end
-  # end
-
   def slug_add
     [
       :username,
@@ -72,14 +62,9 @@ class User < ApplicationRecord
    following.include?(user)
   end
 
-  def find_followers(category_or_image_update)
-    users_following = User.find followers.ids if followers.ids.any? #include
+  def find_followers
+    users_following = User.find followers.ids if followers.ids.any?
     MyMailer.some_changes_in_follow(users_following).deliver_now if users_following != nil
-    #MyMailer.with(user: u).welcome_email.deliver_now
-
-    #    users_following.each do |recipient|
-    #   MyMailer.some_changes_in_follow(recipient).deliver_now
-    # end
   end
 
 end

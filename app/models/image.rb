@@ -9,7 +9,9 @@ class Image < ApplicationRecord
   validates_processing_of :image
   validate :image_size_validatio
   
-  acts_as_votable 
+  acts_as_votable
+
+  paginates_per 18
 
   private
     def update_image_attributes

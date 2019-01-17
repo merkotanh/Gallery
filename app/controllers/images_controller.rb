@@ -5,7 +5,7 @@ class ImagesController < ApplicationController
   respond_to :js, :json, :html
 
   def index
-    @images = Image.all
+    @images = Image.order(created_at: :asc).page(params[:page]).per(18)
     @categories = Category.all
   end
 
@@ -72,6 +72,6 @@ class ImagesController < ApplicationController
     end
 
     def mail_to_user
-      current_user.find_followers(@category)
+      current_user.find_followers
     end
 end

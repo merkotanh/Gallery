@@ -23,6 +23,8 @@ gem 'activeadmin'
 gem 'devise', '~> 4.5'
 gem 'friendly_id', '~> 5.1'
 
+gem 'resque'
+
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'omniauth-oauth2'
@@ -34,7 +36,7 @@ gem 'haml'
 
 gem 'acts_as_votable', '~> 0.10.0'
 gem 'masonry-rails', '~> 0.2.4'
-
+gem 'kaminari'
 gem 'font-awesome-sass', '~> 5.4.1'
 gem 'recaptcha', require: 'recaptcha/rails'
 gem 'figaro'
@@ -53,7 +55,7 @@ group :development, :test do
 end
 
 group :development do
-  gem 'letter_opener'
+  # gem 'letter_opener'
   gem 'web-console', '>= 3.3.0'
   gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'spring'

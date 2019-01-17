@@ -60,8 +60,36 @@ Rails.application.configure do
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
   
   #for opening letter in new browser tab
-  config.action_mailer.delivery_method = :letter_opener
-  config.action_mailer.perform_deliveries = true
+  # config.action_mailer.delivery_method = :letter_opener
 
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+
+  # config.action_mailer.delivery_method = :smtp
+
+  # config.action_mailer.smtp_settings = {
+  #   address:              "smtp.gmail.com",
+  #   port:                 587,
+  #   domain:               "gmail.com",
+  #   authentication:       "plain",
+  #   enable_starttls_auto: true,
+  #   user_name:            "gala.mrt@gmail.com",
+  #   password:             ""
+  # }
+
+
+  config.action_mailer.delivery_method = :sendmail
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.default_options = {from: 'gala.mrt@gmail.com'}
+
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    address:              'smtp.gmail.com',
+    port:                 587,
+    domain:               'exhample.com',
+    user_name:            'newactionmailer@gmail.com',
+    password:             'new_action_mailer',
+    authentication:       'plain',
+    enable_starttls_auto: true  }
+
 end

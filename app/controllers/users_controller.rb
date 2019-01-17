@@ -5,6 +5,9 @@ class UsersController < ApplicationController
   def show
     @user = User.friendly.find(params[:id])
     @u = User.find(@user.following.ids)
+    # qu = Resque.queue_from_class(SendEmailJob)
+    # Resque.enqueue(SendEmailJob, 5)
+    # Resque.enqueue(Sleeper)
   end
 
   def edit
