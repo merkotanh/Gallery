@@ -10,4 +10,4 @@
         .panel.panel-default
           .panel-heading
             = image_tag image.image_url(:thumb)
-            = link_to 'Delete', image_path(image), class:'delete', method: :delete, data: {confirm: 'Are you sure?'}
+            = link_to t('delete'), image_path(image), class:'delete', method: :delete, data: {confirm: 'Are you sure?'}

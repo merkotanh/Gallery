@@ -1,4 +1,6 @@
-.h1 Edit Profile
+.h1 
+  = t('edit')
+  = t('profile')
 = form_for @user, html: { multipart: true } do |f|
   .form-group
     = f.label :username
@@ -16,4 +18,4 @@
     = f.label 'birthday'
     = f.date_field :birthday, class:'form-control'
   .actions
-    = f.submit 'Save changes', class:'btn btn-light'
+    = f.submit t('save'), class:'btn btn-light'

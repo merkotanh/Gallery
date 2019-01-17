@@ -4,11 +4,17 @@ ru:
      long: "%Y-%m-%d %H:%M:%S"
   categories:
     categories: 'Категории'
+    category: 'Категория'
+    edit: 'Редактировать категорию'
+    delete: 'Удалить категорию'
+    add_image: 'Добавить изображение'
     new:
       title: 'Новая категория'
+      name: 'Название категории'
     add: 'Добавить категорию'
     choose: 'Выбрать категорию'
     all_categories: 'Все категории'
+    select: 'Выберите категорию'
   images:
     edit_image_description: 'Изменить описание изображения'
     images: 'Изображения'
@@ -23,3 +29,16 @@ ru:
   submit: 'Принять'
   cancel: 'Отменить'
   submitted_by: 'отправитель '
+  back: 'Все изображения'
+  delete: 'Удалить'
+  edit: 'Редактировать'
+  ar_sure: 'Подтвердите действие.'
+  commenter: 'Комментатор:'
+  save: 'Сохранить изменения'
+  user:
+    unfollow: 'Отписаться'
+    follow: 'Подписаться'
+    pics_category: 'Категория:'
+    users_profile: 'Профиль отправителя:'
+    my_pics: 'Мои изображения'
+    foll_pics: 'Мои подписки'

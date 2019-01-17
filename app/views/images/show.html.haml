@@ -14,15 +14,15 @@
                 %i.fa.fa-heart
               %span.likes-count= @image.get_upvotes.size
           .col-md-6
-            Submitted by
+            = t('submitted_by')
             - if user_signed_in?
               = link_to @image.category.user.username, user_path(@image.category.user.id)
             - else
               = @image.category.user.username
 
             - if @image.category.user == current_user
-              = link_to "Edit", edit_image_path, class: "btn btn-default"
-              = link_to "Delete", image_path(@image), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-default"
+              = link_to t('edit'), edit_image_path, class: "btn btn-default"
+              = link_to t('delete'), image_path(@image), method: :delete, data: { confirm: t("ar_sure?") }, class: "btn btn-default"
       .panel-footer
         .row
           = @image.image_description
@@ -34,4 +34,4 @@
 
     %h4 Add a comment:
     = render 'comments/form'
-    = link_to 'Back to Pics', images_path
+    = link_to t('back'), images_path

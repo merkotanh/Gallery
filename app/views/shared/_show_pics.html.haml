@@ -8,7 +8,6 @@
           = link_to image_path(image) do
             = image_tag image.image_url(:thumb), class:'img-fluid rounded'
         .panel-footer
-          = link_to "#{t('submitted_by')} #{image.category.user.username}", user_path(image.category.user)
-= paginate @images
-%nav#page-nav{:style => "display: none;"}
-  %a{ href: "/?p=2"}
+          - if image.category != nil
+            = link_to "#{t('submitted_by')} #{image.category.user.username}", user_path(image.category.user)
+

@@ -1,19 +1,20 @@
-%h1 Upload Image
+%h1 
+  = t('images.upload_image')
 = form_for @image, :html => {:multipart => true} do |f|
   - if @image.errors.any?
     - @image.errors.full_messages.each do |msg|
-      .alert.alert-danger= msg
+      .alert.alert-danger = msg
   .form-group
     = f.label :image_title
     = f.text_field :image_title, class:'form-control'
   .form-group
-    = f.label :category
-    = f.select :category_id, current_user.categories.collect {|x| [x.name, x.id]}, { include_blank: 'Select One'}, class:'form-control'
+    = f.label t('categories.category')
+    = f.select :category_id, current_user.categories.collect {|x| [x.name, x.id]}, { include_blank: t('categories.select')}, class:'form-control'
   .form-group
     = f.label :image_description
     = f.text_area :image_description, class:'form-control'
   .form-group
     = f.label :image
     = f.file_field :image
-  = f.submit 'Submit', class:'btn btn-light'
-  = link_to 'Cancel', images_path, class:'btn btn-light'
+  = f.submit t('submit'), class:'btn btn-light'
+  = link_to t('cancel'), images_path, class:'btn btn-light'

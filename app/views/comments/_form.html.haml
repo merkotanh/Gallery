@@ -1,7 +1,5 @@
 = form_for [ @image, @image.comments.build ] do |form|
   .form-group
-    / = form.label 
-    / %br
     = form.text_area :body, class: "form-control"
     %br
     = form.submit class: "btn btn-light"

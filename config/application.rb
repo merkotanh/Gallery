@@ -13,6 +13,6 @@ module Gallery
     # $redis = Resque.redis = Redis.new
     
     config.i18n.available_locales = [:ru, :en]
-    config.i18n.default_locale = :ru
+    config.i18n.default_locale = :en
   end
 end

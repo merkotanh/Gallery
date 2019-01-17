@@ -13,28 +13,30 @@
         = @user.email
         %br
         - if current_user == @user
-          = link_to 'Edit', edit_user_path(@user)
+          = link_to t('edit'), edit_user_path(@user)
         %br
         %br
         - if user_signed_in? && current_user != @user
           - if current_user.following?(@user)
-            = button_to 'Unfollow', friendship_path(user_id:@user.id), method: :delete, class:'btn btn-light'
+            = button_to t('user.unfollow'), friendship_path(user_id:@user.id), method: :delete, class:'btn btn-light'
           - else
-            = button_to 'Follow', friendships_path(user_id:@user.id), class:'btn btn-light'
+            = button_to t('user.follow'), friendships_path(user_id:@user.id), class:'btn btn-light'
         %br
           - if @user.following.any?
             - @u.each do |user|
               - user.categories.each do |category|
-                = link_to "Pics category:  #{category.name}", category_path(id:category.id)
+                = link_to "Pics category: #{category.name}", category_path(id:category.id)
                 %br
                 = link_to "User's profile: #{user.username}", user_path(id:user.id)
 
   .col-12.col-md-5
-    %h5.text-center MY Pics
+    %h5.text-center 
+      = t('user.my_pics')
     #images.transitions-enabled
       = render(partial: 'show_pics', locals: { user: @user})
   .col-12.col-md-4
-    %h5.text-center Following User's Pics
+    %h5.text-center 
+      = t("user.foll_pics")
     - if @user.following.any?
       - @u.each do |user|
         #images.transitions-enabled

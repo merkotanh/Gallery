@@ -3,11 +3,10 @@
     - @category.errors.full_messages.each do |msg|
       .alert.alert-danger= msg
   .form-group
-    = f.label 'Category name'
+    = f.label t('categories.new.name')
     = f.text_field :name, class:'form-control'
   %br/
 
-  = f.submit 'Submit', class:"button btn btn-light btn-default"
-  = link_to 'Cancel', categories_path, class:'btn btn-light btn-default'
-  / link_to 'Delete', categories_destroy_path, class:'delete', method: :delete, data: {confirm: 'Are you sure?'}
+  = f.submit t('submit'), class:"button btn btn-light btn-default"
+  = link_to t('cancel'), categories_path, class:'btn btn-light btn-default'
 %br/
