@@ -10,6 +10,8 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
 
+*= require_self
+
 *= require 'masonry/basic'
 *= require 'masonry/centered'
 *= require 'masonry/fluid'
@@ -17,8 +19,6 @@
 *= require 'masonry/infinitescroll'
 *= require 'masonry/right-to-left'
 *= require 'masonry/transitions'
-
-*= require_self
 */
 
 @import "bootstrap";
@@ -28,7 +28,7 @@
 body {
   background: #F7F7F7;
   font-size: 16px;
-  font-family: "Comic Sans MS", cursive, sans-serif
+  font-family: "Comic Sans MS", cursive, sans-serif;
 }
 
 nav {
@@ -45,26 +45,49 @@ a {
   }
 }
 
-
 #images {
   margin: 0 auto;
   width: 100%;
+  text-align: center;
   .box {
+
+  margin: 0px;
+  padding: 0px;
+  padding-bottom: 0px;
+
+  font-size: 11px;
+  line-height: 1.4em;
+
+  color: #5E5E5E;
+
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 3px;
+  border: 1px solid;
+  border-color: #A9A9A9;
+
       background-color: #F8FEF2;
+      background: #FBFBFB;
+
 	  margin: 10px;
 	  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.22);
+	  box-shadow: 1px 1px 2px #A9A9A9;
+
 	  border-radius: 7px;
-	  text-align: center;
 	  img {
 	  	max-width: 100%;
 	  	height: auto;
 	  }
+	  a {
+	    text-align: center;
+	    color: #555555;
+	  	}
 	  h2 {
 	  	font-size: 22px;
 	  	margin: 0;
 	  	padding: 25px 10px;
 	  	a {
-			color: #474747;
+          color: #474747;
 	  	}
 	  }
 	  .user {

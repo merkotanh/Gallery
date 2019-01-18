@@ -1,11 +1,10 @@
 .row
-  .col-md-8.col-md-offset-2
+  .col-8.col-offset-2
     %h1 
       = t('images.edit_image_description')
     - if @image.errors.any?
       - @image.errors.full_messages.each do |msg|
         .alert.alert-danger= msg
-
     = form_for @image, :html => {:multipart => true} do |f|
       = image_tag @image.image_url(:thumb), class:'img-fluid rounded'
       %br

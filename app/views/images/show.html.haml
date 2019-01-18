@@ -1,5 +1,5 @@
 .row
-  .col-md-8.col-md-offset-2.col-xs-12
+  .col-12
     .panel.panel-default
       .panel-heading
         %h1= @image.image_title
@@ -8,12 +8,12 @@
           .box.panel.panel-default
             = image_tag @image.image_url(:large), class:'img-fluid rounded'
         .row
-          .col-md-6.col-md-offset-2
+          .col-6
             = link_to like_image_path(@image), class: "like-btn", method: :put, remote: :true do
               %span
                 %i.fa.fa-heart
               %span.likes-count= @image.get_upvotes.size
-          .col-md-6
+          .col-6
             = t('submitted_by')
             - if user_signed_in?
               = link_to @image.category.user.username, user_path(@image.category.user.id)
@@ -26,10 +26,9 @@
       .panel-footer
         .row
           = @image.image_description
-
 %br
 .row
-  .col-md-8.col-md-offset-4.col-xs-12
+  .col-12
     = render @image.comments
 
     %h4 Add a comment:

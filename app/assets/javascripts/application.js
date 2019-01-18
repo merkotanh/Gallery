@@ -10,17 +10,14 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-
-//= require jquery3
-
-//= require masonry/jquery.masonry
-//= require masonry/jquery.infinitescroll.min
+//= require jquery
 //= require jquery_ujs
-
 //= require activestorage
-
 //= require bootstrap-sprockets
-
 //= require turbolinks
+//= require masonry/jquery.masonry
+//= require masonry/jquery.imagesloaded.min
+//= require masonry/jquery.infinitescroll.min
+//= require masonry/modernizr-transitions
 //= require popper
 //= require_tree .

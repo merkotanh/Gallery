@@ -11,8 +11,6 @@ class Image < ApplicationRecord
   
   acts_as_votable
 
-  paginates_per 18
-
   private
     def update_image_attributes
       if image.present?

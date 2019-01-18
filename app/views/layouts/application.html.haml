@@ -56,7 +56,7 @@
           %li{:class => "nav-item#{" active" if I18n.locale == :ru}"}
             = link_to I18n.t('ru'), {locale: :ru}, class: 'nav-link'
 
-    .container
+    .container-fluid
       - if flash[:notice]
         .alert.alert_success= flash[:notice]
       - if flash[:alert]
