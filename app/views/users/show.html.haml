@@ -1,11 +1,11 @@
 .row
-  .col-12.col-md-3
-    .box.panel.panel-default
-      .panel.panel-heading
-        %h1
+  .col-lg-2.col-md-3.col-xs-12
+    .panel.panel-default
+      #user.panel.panel-heading
+        %h3
           = @user.username
       .panel.panel-body
-        = image_tag @user.avatar.url(:profile), class:'rounded' if @user.avatar?
+        = image_tag @user.avatar.url(:profile), class:'rounded'# if @user.avatar?
         %br
         = @user.first_name
         = @user.last_name
@@ -25,19 +25,22 @@
           - if @user.following.any?
             - @u.each do |user|
               - user.categories.each do |category|
-                = link_to "Pics category: #{category.name}", category_path(id:category.id)
+                = t("pics_category")
+                = link_to "#{category.name}", category_path(id:category.id)
                 %br
-                = link_to "User's profile: #{user.username}", user_path(id:user.id)
-
-  .col-12.col-md-5
-    %h5.text-center 
+                = t("user_profile")
+                = link_to "#{user.username}", user_path(id:user.id)
+                %br
+                %br
+  .col-lg-5.col-md-5.col-xs-12
+    %h5
       = t('user.my_pics')
-    #images.transitions-enabled
+    #pictures.transitions-enabled
       = render(partial: 'show_pics', locals: { user: @user})
-  .col-12.col-md-4
-    %h5.text-center 
+  .col-lg-5.col-md-4.col-xs-12
+    %h5
       = t("user.foll_pics")
     - if @user.following.any?
       - @u.each do |user|
-        #images.transitions-enabled
+        #pictures.transitions-enabled
           = render(partial: 'show_pics', locals: { user: user})

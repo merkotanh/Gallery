@@ -1,34 +1,36 @@
 .row
-  .col-12
+  .col-lg-8.offset-lg-2.col-md-10.offset-md-1.col-xs-12
     .panel.panel-default
       .panel-heading
-        %h1= @image.image_title
+        %h2= @image.image_title
       .panel-body
         .row
-          .box.panel.panel-default
-            = image_tag @image.image_url(:large), class:'img-fluid rounded'
+          .col-12.centered
+            .box.panel.panel-default
+              = image_tag @image.image_url(:large), class:'img-fluid rounded'
         .row
-          .col-6
+          .col-lg-3.col-offset-lg-1.col-md-4.col-md-offset-1.col-xl-3.col-xs-3
             = link_to like_image_path(@image), class: "like-btn", method: :put, remote: :true do
               %span
                 %i.fa.fa-heart
               %span.likes-count= @image.get_upvotes.size
-          .col-6
+          .col-lg-3.col-md-4.col-xl-3.col-xs-3
             = t('submitted_by')
             - if user_signed_in?
               = link_to @image.category.user.username, user_path(@image.category.user.id)
             - else
               = @image.category.user.username
-
+          .col-lg-3.col-md-4.col-xl-3.col-xs-3
             - if @image.category.user == current_user
               = link_to t('edit'), edit_image_path, class: "btn btn-default"
               = link_to t('delete'), image_path(@image), method: :delete, data: { confirm: t("ar_sure?") }, class: "btn btn-default"
       .panel-footer
         .row
-          = @image.image_description
+          .col-lg-9.col-md-9.col-xs-12
+            = @image.image_description
 %br
 .row
-  .col-12
+  .col-lg-6.offset-lg-2.col-md-10.offset-md-1.col-xs-12
     = render @image.comments
 
     %h4 Add a comment:

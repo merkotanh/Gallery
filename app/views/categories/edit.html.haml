@@ -1,9 +1,12 @@
-%h2 Edit category
-= render 'shared/edit_categories'
+.row
+  .col-lg-8.offset-lg-2.col-md-10.offset-md-1.col-xs-12
+    %h2 Edit category
+    = render 'shared/edit_categories'
 
-%h3
-  Images in #{@category.name}
-#images.transitions-enabled
+#editor
+  %h3
+    Images in #{@category.name}
+#pictures.transitions-enabled
   - if @category.images.exists?
     - @category.images.each do |image|
       .box.panel.panel-default

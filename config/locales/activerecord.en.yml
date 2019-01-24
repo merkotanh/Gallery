@@ -1,10 +1,19 @@
 en:
   activerecord:
+    errors:
+      messages:
+        record_invalid: "Validation failed: %{errors}"
+        restrict_dependent_destroy:
+          has_one: "Cannot delete record because a dependent %{record} exists"
+          has_many: "Cannot delete record because dependent %{record} exist"
     models:
-      image:
-    category:
-        name: 'Category name'
+      image: Image
+      category: Category
     attributes:
       image:
         image_title: 'Image title'
         image_description: 'Image description'
+      category:
+        name: 'Category name'
+
+  

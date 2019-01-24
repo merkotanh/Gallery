@@ -1,21 +1,23 @@
-.h1 
-  = t('edit')
-  = t('profile')
-= form_for @user, html: { multipart: true } do |f|
-  .form-group
-    = f.label :username
-    = f.text_field :username, class:'form-control'
-  .form-group  
-    = f.label :avatar
-    = f.file_field :avatar, class:'form-control'
-  .form-group
-    = f.label :first_name
-    = f.text_field :first_name, class:'form-control'
-  .form-group
-    = f.label :last_name
-    = f.text_field :last_name, class:'form-control'
-  .form-group
-    = f.label 'birthday'
-    = f.date_field :birthday, class:'form-control'
-  .actions
-    = f.submit t('save'), class:'btn btn-light'
+.row
+  .col-lg-8.offset-lg-2.col-md-10.offset-md-1.col-xs-12
+    .h1 
+      = t('edit')
+      = t('profile')
+    = form_for @user, html: { multipart: true } do |f|
+      .form-group
+        = f.label :username
+        = f.text_field :username, class:'form-control'
+      .form-group  
+        = f.label :avatar
+        = f.file_field :avatar, class:'form-control'
+      .form-group
+        = f.label :first_name
+        = f.text_field :first_name, class:'form-control'
+      .form-group
+        = f.label :last_name
+        = f.text_field :last_name, class:'form-control'
+      .form-group
+        = f.label 'birthday'
+        = f.date_field :birthday, class:'form-control'
+      .actions
+        = f.submit t('save'), class:'btn btn-light'

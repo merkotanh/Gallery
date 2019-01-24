@@ -7,8 +7,7 @@ class CategoriesController < ApplicationController
   end
 
   def show
-    @images = @category.images.order(created_at: :asc).page(params[:page]).per(18)
-
+    @images = @category.images.order(created_at: :asc).page(params[:page]).per(10)
   end
 
   def new
@@ -34,7 +33,6 @@ class CategoriesController < ApplicationController
 
   def update
     if @category.update(category_params)
-      #@category.find_followers(current_user)
       current_user.find_followers
       flash[:notice] = 'Category updated'
       redirect_to category_path(params[:id])

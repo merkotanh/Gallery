@@ -1,20 +1,23 @@
-%h1 
-  = t('images.upload_image')
-= form_for @image, :html => {:multipart => true} do |f|
-  - if @image.errors.any?
-    - @image.errors.full_messages.each do |msg|
-      .alert.alert-danger = msg
-  .form-group
-    = f.label :image_title
-    = f.text_field :image_title, class:'form-control'
-  .form-group
-    = f.label t('categories.category')
-    = f.select :category_id, current_user.categories.collect {|x| [x.name, x.id]}, { include_blank: t('categories.select')}, class:'form-control'
-  .form-group
-    = f.label :image_description
-    = f.text_area :image_description, class:'form-control'
-  .form-group
-    = f.label :image
-    = f.file_field :image
-  = f.submit t('submit'), class:'btn btn-light'
-  = link_to t('cancel'), images_path, class:'btn btn-light'
+.row
+  .col-lg-8.offset-lg-2.col-md-10.offset-md-1.col-xs-12
+    %h1 
+      = t('images.upload_image')
+    = form_for @image, :html => {:multipart => true} do |f|
+      - if @image.errors.any?
+        - @image.errors.full_messages.each do |msg|
+          .alert.alert-danger 
+            = msg
+      .form-group
+        = f.label :image_title
+        = f.text_field :image_title, class:'form-control'
+      .form-group
+        = f.label t('categories.category')
+        = f.select :category_id, current_user.categories.collect {|x| [x.name, x.id]}, { include_blank: t('categories.select')}, class:'form-control'
+      .form-group
+        = f.label :image_description
+        = f.text_area :image_description, class:'form-control'
+      .form-group
+        = f.label :image
+        = f.file_field :image
+      = f.submit t('submit'), class:'btn btn-light'
+      = link_to t('cancel'), images_path, class:'btn btn-light'

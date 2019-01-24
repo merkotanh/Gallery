@@ -5,8 +5,6 @@
   .form-group
     = f.label t('categories.new.name')
     = f.text_field :name, class:'form-control'
-  %br/
 
   = f.submit t('submit'), class:"button btn btn-light btn-default"
   = link_to t('cancel'), categories_path, class:'btn btn-light btn-default'
-%br/

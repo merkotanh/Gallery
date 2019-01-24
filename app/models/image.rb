@@ -7,6 +7,7 @@ class Image < ApplicationRecord
   before_save :update_image_attributes
 
   validates_processing_of :image
+  validates_presence_of :image
   validate :image_size_validatio
   
   acts_as_votable

@@ -1,6 +1,3 @@
-#images.transitions-enabled.centered.pagination-centered.clearfix.masonry
-  - @images.each do |image|
-    .box
-      = render(partial: "image", locals: { image: image })
+= render 'shared/show_pics'
 %nav#page-nav
   = link_to_next_page @images, ''

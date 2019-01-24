@@ -5,7 +5,7 @@ class ImagesController < ApplicationController
   respond_to :js, :json, :html
 
   def index
-    @images = Image.order(created_at: :desc).page(params[:page]).per(22)
+    @images = Image.order(created_at: :desc).page(params[:page]).per(35)
     @categories = Category.all
   end
 
@@ -17,7 +17,7 @@ class ImagesController < ApplicationController
   end
 
   def create
-    @image = Image.new(image_params)
+    @image = Image.create(image_params)
     
     if @image.save
       flash[:notice] = 'Image Created'
@@ -50,7 +50,7 @@ class ImagesController < ApplicationController
   end
 
   def vote
-    record_activity('Likes a picture') # если передавать параметр #{@image.title}, то JS не работает при нажатии лайка и надо перегружать страницу
+    record_activity('Likes a picture')
     
     if !current_user.liked? @image
       @image.liked_by current_user
@@ -59,7 +59,6 @@ class ImagesController < ApplicationController
         @image.unliked_by current_user
       end
     end
-    # redirect_to image_path    
   end
 
   private
