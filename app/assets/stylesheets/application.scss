@@ -95,14 +95,45 @@ h2, h4 {
     transform: translateX(0);
   }
 }
+#newimage {
 
-  .box:hover {
-    background-image: radial-gradient(circle, #FFFFFF, #FFFAC5, #008CA1);
-    -webkit-animation: swing 0.6s ease;
-    animation: swing 0.6s ease;
-    -webkit-animation-iteration-count: 1;
-    animation-iteration-count: 1;
-   }
+}
+#texthover {
+  color: black;
+  font-weight: bold;
+  font-size: 22px;
+}
+.middle {
+  transition: .5s ease;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.box:hover .newimage {
+  opacity: 0.8;
+}
+.box:hover .middle {
+  opacity: 1;
+}
+.texthover {
+  font-weight: bold;
+  font-size: 22px;
+  color: #800040;
+  padding: 30% 30% 30% 30%;
+}
+
+.box:hover {
+  background-image: radial-gradient(circle, #FFFFFF, #FFFAC5, #008CA1);
+  -webkit-animation: swing 0.6s ease;
+  animation: swing 0.6s ease;
+  -webkit-animation-iteration-count: 1;
+  animation-iteration-count: 1;
+ }
 
   .box {
     padding: 2px;
@@ -121,12 +152,12 @@ h2, h4 {
     background-image: radial-gradient(#F8FEF2, #FBFBFB);
     align-self: center;
 
-	  h2 {
-		    font-size: 22px;
-	 	    margin: 0;
-	 	    padding: 25px 10px;
-	  }
-	}
+    h2 {
+        font-size: 22px;
+        margin: 0;
+        padding: 25px 10px;
+    }
+  }
 }
 
 .btn {

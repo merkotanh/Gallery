@@ -20,7 +20,7 @@ class ApplicationController < ActionController::Base
     end
 
     def record_activity(note = 'default')
-      # if current_user != user.admin?
+      if !current_admin_user
         @activity = ActivityLog.new
        
         if current_user
@@ -37,7 +37,7 @@ class ApplicationController < ActionController::Base
         @activity.controller = controller_name
         @activity.params = params
         @activity.save
-      # end
+      end
     end
 
   protected
