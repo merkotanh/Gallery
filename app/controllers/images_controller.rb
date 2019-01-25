@@ -33,10 +33,10 @@ class ImagesController < ApplicationController
   def update
     if @image.update(image_params)
       flash[:notice] = 'Image updated'
-      redirect_back(fallback_location: root_path)
     else
-      render 'edit'
+      flash[:notice] = 'Image could not be updated'
     end
+    redirect_to image_path
   end
  
   def destroy

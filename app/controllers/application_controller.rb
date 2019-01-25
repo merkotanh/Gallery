@@ -20,20 +20,24 @@ class ApplicationController < ActionController::Base
     end
 
     def record_activity(note = 'default')
-      @activity = ActivityLog.new
-      if current_user
-        @activity.user_id = current_user.id 
-        @activity.action = current_user.email
-      else
-        @activity.user_id = 0 
-        @activity.action = 'guest'
-      end
-      @activity.note =  "#{request.host}:#{request.port}#{request.fullpath}"
-      @activity.browser = request.env['HTTP_USER_AGENT']
-      @activity.ip_address = request.env['REMOTE_ADDR']
-      @activity.controller = controller_name
-      @activity.params = params
-      @activity.save
+      # if current_user != user.admin?
+        @activity = ActivityLog.new
+       
+        if current_user
+          @activity.user_id = current_user.id 
+          @activity.action = current_user.email
+        else
+          @activity.user_id = 0 
+          @activity.action = 'guest'
+        end
+
+        @activity.note =  "#{request.host}:#{request.port}#{request.fullpath}"
+        @activity.browser = request.env['HTTP_USER_AGENT']
+        @activity.ip_address = request.env['REMOTE_ADDR']
+        @activity.controller = controller_name
+        @activity.params = params
+        @activity.save
+      # end
     end
 
   protected
