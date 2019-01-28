@@ -258,8 +258,8 @@ Devise.setup do |config|
   # up on your models and hooks.
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
   config.omniauth :github, ENV['GITHUB_APP_ID'], ENV['GITHUB_APP_SECRET'], scope: 'user,public_repo'
-  config.omniauth :facebook, ENV['FACEBOOK_APP_ID'], ENV['FACEBOOK_APP_SECRET'], :display => "popup", :scope => 'email', info_fields: 'email, first_name, last_name'
-  config.omniauth :google_oauth2 , ENV['GITHUB_APP_ID'], ENV['GITHUB_APP_SECRET'], {}
+  config.omniauth :facebook, ENV['FACEBOOK_APP_ID'], ENV['FACEBOOK_APP_SECRET'], {}
+  config.omniauth :google_oauth2 , ENV['GOOGLE_APP_ID'], ENV['GOOGLE_APP_SECRET'], {}
   
 
   # ==> Warden configuration
