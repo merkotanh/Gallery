@@ -19,7 +19,7 @@ class CategoriesController < ApplicationController
     
     if @category.save
       @image = @category.images.build
-      flash[:notice] = 'Category created'
+      flash[:success] = 'Category created'
       render 'images/new'
     else
       render 'new'
@@ -34,7 +34,7 @@ class CategoriesController < ApplicationController
   def update
     if @category.update(category_params)
       current_user.find_followers
-      flash[:notice] = 'Category updated'
+      flash[:success] = 'Category updated'
       redirect_to category_path(params[:id])
     else
       render 'edit'
@@ -46,7 +46,7 @@ class CategoriesController < ApplicationController
       @category.destroy
       flash[:notice] = 'Category destroyed successfully'
     else
-      flash[:notice] = "Only category's author has permission to delete the category"
+      flash[:alert] = "Only category's author has permission to delete the category"
     end
 
     redirect_to images_path

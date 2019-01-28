@@ -20,7 +20,7 @@ class ImagesController < ApplicationController
     @image = Image.create(image_params)
     
     if @image.save
-      flash[:notice] = 'Image Created'
+      flash[:success] = 'Image Created'
       redirect_back(fallback_location: root_path)
     else
       render 'new'
@@ -32,9 +32,9 @@ class ImagesController < ApplicationController
 
   def update
     if @image.update(image_params)
-      flash[:notice] = 'Image updated'
+      flash[:success] = 'Image updated'
     else
-      flash[:notice] = 'Image could not be updated'
+      flash[:alert] = 'Image could not be updated'
     end
     redirect_to image_path
   end
@@ -44,7 +44,7 @@ class ImagesController < ApplicationController
       @image.destroy
       flash[:notice] = 'Image deleted'      
     else
-      flash[:notice] = "Only picture's author could delete the picture"
+      flash[:alert] = "Only picture's author could delete the picture"
     end
     redirect_to root_path
   end
