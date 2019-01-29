@@ -1,0 +1,11 @@
+.row
+  .col-lg-8.offset-lg-2.col-md-10.offset-md-1.col-xs-12
+    %h2 
+      = t('contact_me')
+      = "#{current_user.username.upcase}!"
+    = form_for @message, url: create_message_url do |f|
+      = @message.errors.full_messages.join(', ')
+      .form-group    
+        = f.text_area :body, rows: 12, placeholder: t('feel_free'), class: "form-control"
+      .form-action
+        = f.submit t('send'), class: "btn btn-primary"
