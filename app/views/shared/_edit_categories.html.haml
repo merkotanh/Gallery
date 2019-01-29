@@ -3,7 +3,7 @@
     - @category.errors.full_messages.each do |msg|
       .alert.alert-danger= msg
   .form-group
-    = f.label t('categories.new.name')
+    = f.label t('category.new.name')
     = f.text_field :name, class:'form-control'
 
   = f.submit t('submit'), class:"button btn btn-light btn-default"

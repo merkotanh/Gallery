@@ -234,3 +234,10 @@ h1, h3, h5 {
   border: none;
   background-color: #F7F7F7;
 }
+i.fa.fa-envelope-open {
+  font-size:22px;
+  color: #619586;
+}
+i.fa.fa-envelope-open:hover {
+  color:  radial-gradient(#008CA1, #FFFAC5, #ffffff);
+}

@@ -1,7 +1,7 @@
 .row
   .col-lg-8.offset-lg-2.col-md-10.offset-md-1.col-xs-12
     %h1 
-      = t('images.edit_image_description')
+      = t('image.edit_image_description')
     - if @image.errors.any?
       - @image.errors.full_messages.each do |msg|
         .alert.alert-danger= msg
@@ -9,7 +9,7 @@
       = image_tag @image.image_url(:thumb), class:'img-fluid rounded'
       %br
       .form-group
-        = f.label :image
+        = f.label t('image.im')
         = f.file_field :image, class:'form-control'
       .form-group
         = f.label :image_title

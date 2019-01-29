@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   before_action :set_locale
   before_action :configure_permitted_parameters, if: :devise_controller?
 
-  before_action :record_activity
+  # before_action :record_activity
 
   private
     def set_locale

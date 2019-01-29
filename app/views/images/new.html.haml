@@ -1,7 +1,7 @@
 .row
   .col-lg-8.offset-lg-2.col-md-10.offset-md-1.col-xs-12
     %h1 
-      = t('images.upload_image')
+      = t('image.upload_image')
     = form_for @image, :html => {:multipart => true} do |f|
       - if @image.errors.any?
         - @image.errors.full_messages.each do |msg|
@@ -11,7 +11,7 @@
         = f.label :image_title
         = f.text_field :image_title, class:'form-control'
       .form-group
-        = f.label t('categories.category')
+        = f.label t('category.new.name')
         = f.select :category_id, current_user.categories.collect {|x| [x.name, x.id]}, { include_blank: t('categories.select')}, class:'form-control'
       .form-group
         = f.label :image_description

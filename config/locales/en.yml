@@ -2,24 +2,25 @@ en:
   time:
    formats:
      long: "%Y-%d-%m %H:%M:%S"
-  categories:
-    categories: 'Categories'
-    category: 'Category'
-    edit: 'Edit the category'
-    delete: 'Delete the category'
-    add_image: 'Add image to the category'
+  category:
     new:
       title: 'New Category'
       name: 'Category name'
     add: 'Add category'
+    edit: 'Edit the category'
+    delete: 'Delete the category'
+    add_image: 'Add image to the category'
     choose: 'Choose a category'
     all_categories: 'All categories'
     select: 'Select One'
-  images:
+    cat: 'Category'
+
+  image:
     edit_image_description: 'Edit image description'
     images: 'Images'
     all_images: 'All images'
     upload_image: 'Upload Image'
+    im: 'Image'
   profile: 'profile'
   signout: 'Sign in'
   signin: 'Sign out'
@@ -42,8 +43,10 @@ en:
     users_profile: "User's profile:"
     my_pics: 'MY Pics'
     foll_pics: "Following User's Pics"
+    remove_avatar: 'Remove avatar'
   pics_category: "Pics category:"
   user_profile: "User's profile:"
+  email_me: 'email me ;)'
   faker:
     name:
       username: 'юзер'
@@ -83,3 +86,35 @@ en:
         one: is the wrong length (should be 1 character)
         other: is the wrong length (should be %{count} characters)
       other_than: must be other than %{count}
+  contact_me: 'Contact me, dear'
+  feel_free: 'Feel free to ask a question or share your opinion'
+  send: Send
+  
+  messages:
+    create:
+      flash:
+        notice: "We have received your message and will be in touch soon!"
+        error: "There was an error sending your message. Please try again."
+  categories:
+    create:
+      flash:
+        success: 'Category created'
+    update:
+      flash:
+        success: 'Category updated'
+    destroy:
+      flash:
+        notice: 'Category destroyed successfully'
+        error: "Only category's author has permission to delete the category"
+  images:
+    create:
+      flash:
+        success: 'Image created'
+    update:
+      flash:
+        success: 'Image updated'
+        error: 'Image could not be updated'
+    destroy:
+      flash:
+        notice: 'Image destroyed successfully'
+        error: "Only category's author has permission to delete the image"

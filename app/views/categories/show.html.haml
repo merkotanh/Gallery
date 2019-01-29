@@ -2,9 +2,9 @@
   %h1
     = @category.name
   - if current_user == @category.user
-    = link_to t('categories.edit'), edit_category_path, class:'btn btn-light'
-    = link_to t('categories.delete'), category_path, class:'delete btn btn-light', method: :delete, data: {confirm: t('ar_sure')}
-    = link_to t('categories.add_image'), upload_path, class:'btn btn-light'
+    = link_to t('category.edit'), edit_category_path, class:'btn btn-light'
+    = link_to t('category.delete'), category_path, class:'delete btn btn-light', method: :delete, data: {confirm: t('ar_sure')}
+    = link_to t('category.add_image'), upload_path, class:'btn btn-light'
 = render 'shared/show_pics'
 .container-fluid
   = paginate @images

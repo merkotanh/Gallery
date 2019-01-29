@@ -35,6 +35,10 @@ Rails.application.routes.draw do
     end
 
     get "upload" => "images#new", :as => "upload"
+    get 'contact-me', to: 'messages#new', as: 'new_message'
+    post 'contact-me', to: 'messages#create', as: 'create_message'
+
     root to: "categories#index"
+
   end
 end

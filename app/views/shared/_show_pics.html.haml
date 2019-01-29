@@ -8,7 +8,7 @@
           = link_to image_path(image) do
             = image_tag image.image_url(:thumb), class:'img-fluid rounded'
         .panel-footer
-          = t('category')
+          = t('category.new.name')
           = link_to "#{image.category.name}", user_path(image.category)
           %br
           - if image.category != nil
