@@ -118,3 +118,8 @@ en:
       flash:
         notice: 'Image destroyed successfully'
         error: "Only category's author has permission to delete the image"
+comments:
+  create:
+    flash:
+      success: 'Comment Created'
+      error: 'Error Creating comment'

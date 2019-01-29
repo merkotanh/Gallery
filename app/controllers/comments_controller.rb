@@ -12,11 +12,11 @@ class CommentsController < ApplicationController
     @comment = @image.comments.create(comment_params)
   	@comment.user_id = current_user.id
     if @comment.save
-      flash[:success] = t('Comment Created')
+      flash[:success] = t('comments.create.flash.success')
       record_activity("Adds a comment:")
       redirect_to root_path
     else
-      flash[:error] = t('Error Creating comment')
+      flash[:error] = t('comments.create.flash.error')
       redirect_to root_path
     end
   end
