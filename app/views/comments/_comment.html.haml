@@ -1,7 +1,8 @@
 %p
-  %strong 
+- if comment.user != nil
+  .commenter
     = t('commenter')
-  = link_to comment.image.category.user.username, user_path(comment.image.category.user)
-%p
-  = comment.body
+    = link_to comment.user.username, user_path(comment.user)
+  %p.comments
+    = comment.body
   

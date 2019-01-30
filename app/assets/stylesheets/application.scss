@@ -241,3 +241,19 @@ i.fa.fa-envelope-open {
 i.fa.fa-envelope-open:hover {
   color:  radial-gradient(#008CA1, #FFFAC5, #ffffff);
 }
+.comments {
+  width: 100%;
+  text-align: left;
+  padding-top: 10px;
+  padding-left: 10px;
+  padding-bottom: 10px;
+  align-self: center;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 3px;
+  border: 1px solid;
+  border-color: #d9d9d9;
+}
+.commenter {
+  color: #999999;
+}
