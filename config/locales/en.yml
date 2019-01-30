@@ -21,6 +21,8 @@ en:
     all_images: 'All images'
     upload_image: 'Upload Image'
     im: 'Image'
+  comment:
+    add: 'Add a comment:'
   profile: 'profile'
   signout: 'Sign in'
   signin: 'Sign out'
@@ -118,8 +120,8 @@ en:
       flash:
         notice: 'Image destroyed successfully'
         error: "Only category's author has permission to delete the image"
-comments:
-  create:
-    flash:
-      success: 'Comment Created'
-      error: 'Error Creating comment'
+  comments:
+    create:
+      flash:
+        success: 'Comment Created'
+        error: 'Error Creating comment'

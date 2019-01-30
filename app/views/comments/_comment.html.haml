@@ -1,7 +1,7 @@
 %p
   %strong 
     = t('commenter')
-  = comment.user_id
+  = link_to comment.image.category.user.username, user_path(comment.image.category.user)
 %p
   = comment.body
   

@@ -14,11 +14,10 @@ class CommentsController < ApplicationController
     if @comment.save
       flash[:success] = t('comments.create.flash.success')
       record_activity("Adds a comment:")
-      redirect_to root_path
     else
       flash[:error] = t('comments.create.flash.error')
-      redirect_to root_path
     end
+    redirect_back(fallback_location: root_path)
   end
 
   def edit
