@@ -5,7 +5,7 @@ en:
   category:
     new:
       title: 'New Category'
-      name: 'Category name'
+      name: 'Category'
     add: 'Add category'
     edit: 'Edit the category'
     delete: 'Delete the category'
