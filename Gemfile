@@ -20,9 +20,7 @@ gem 'kaminari'
 gem 'activeadmin'
 gem 'devise', '~> 4.5'
 gem 'friendly_id', '~> 5.1'
-
 gem 'resque'
-
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'omniauth-oauth2'
@@ -31,13 +29,11 @@ gem 'omniauth-github', '~> 1.1', '>= 1.1.2'
 gem 'carrierwave', '~> 1.2.1'
 gem 'mini_magick'
 gem 'haml'
-
 gem 'acts_as_votable', '~> 0.10.0'
 gem 'masonry-rails', '~> 0.2.4'
 gem 'font-awesome-sass', '~> 5.4.1'
 gem 'recaptcha', require: 'recaptcha/rails'
 gem 'figaro'
-
 gem 'fog-aws'
 
 group :development, :test do
@@ -55,7 +51,6 @@ group :development do
   gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
-
 end
 
 group :test do
