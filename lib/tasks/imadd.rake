@@ -1,5 +1,5 @@
 namespace :app do
-  task imtask: :environment do
+  task imadd: :environment do
     dir = "#{Rails.root}/lib/pic"
     dirs = Dir.entries(dir).reject {|f| f[0].include?('.')}
     user = User.find_by id: 13
