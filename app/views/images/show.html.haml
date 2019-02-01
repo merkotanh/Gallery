@@ -28,7 +28,7 @@
             = link_to t('edit'), edit_image_path, class: "btn btn-default"
             = link_to t('delete'), image_path(@image), method: :delete, data: { confirm: t("ar_sure") }, class: "btn btn-default"
     .row
-      .col-lg-9.col-md-9.col-xs-12
+      .col-12
         = @image.image_description
 %br
 .row
