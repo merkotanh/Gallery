@@ -19,7 +19,7 @@
       #navbar1.collapse.navbar-collapse
         %ul.navbar-nav.mr-auto
           %li.nav-item.dropdown
-            %a#navbarDropdownMenuLink.nav-link.dropdown-toggle{"aria-expanded" => "true", href: categories_path, "aria-haspopup" => "true", "data-toggle" => "dropdown"}
+            %a#navbarDropdownMenuLink.nav-link.dropdown-toggle{"aria-expanded" => "false", href: categories_path, "aria-haspopup" => "true", "data-toggle" => "dropdown"}
               = t('category.all_categories')
             .dropdown-menu
               = link_to t('category.all_categories'), categories_path, class: 'nav-link'
@@ -58,10 +58,9 @@
 
           - if user_signed_in?
             %li.nav-item
-              #nav-link
-                %a{"data-placement" => "right", "data-toggle" => "tooltip", href: new_message_path, title: t('email_me')}
-                  &nbsp;
-                  %i.fa.fa-envelope-open
+              %a.nav-link{"data-placement" => "right", "data-toggle" => "tooltip", href: new_message_path, title: t('email_me')}
+                &nbsp;
+                %i.fa.fa-envelope-open
 
              
     .container-fluid
