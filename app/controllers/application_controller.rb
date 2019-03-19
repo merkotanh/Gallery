@@ -21,6 +21,10 @@ class ApplicationController < ActionController::Base
 
     def record_activity(note = 'default')
       if !current_admin_user
+        puts
+        puts
+        puts '???'*50
+        puts current_admin_user
         @activity = ActivityLog.new
        
         if current_user
@@ -37,6 +41,11 @@ class ApplicationController < ActionController::Base
         @activity.controller = controller_name
         @activity.params = params
         @activity.save
+      else
+        puts
+        puts
+        puts '!!'*50
+        puts
       end
     end
 
