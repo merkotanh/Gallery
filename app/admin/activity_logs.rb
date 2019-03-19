@@ -1,5 +1,7 @@
 ActiveAdmin.register ActivityLog do
 
-permit_params  :user_id, :browser, :ip_address, :controller, :action, :params, :note, :created_at, :updated_at
+config.batch_actions = false
+
+permit_params  :user_id, :user, :browser, :ip_address, :controller, :action, :params, :note, :created_at, :updated_at
 
 end

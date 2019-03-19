@@ -35,6 +35,24 @@ ActiveAdmin.register_page "Dashboard" do
         end
       end
 
+      column do
+        panel "Activity Log" do
+          table_for ActivityLog.order(created_at: :desc).limit(15) do
+            column :id
+            column 'ActivityLog', :user_id do |activity|
+              link_to(activity.user_id, admin_activity_log_path(activity))
+            end
+            column 'ActivityLog', :user do |activity|
+              activity.user
+            end
+            column 'ActivityLog', :controller do |activity|
+              activity.controller
+            end
+            column :created_at
+          end
+        end
+      end
+
     @comments = Comment.order(created_at: :desc).limit(15)
        column do
          panel "Recent Comment" do

@@ -3,8 +3,7 @@ class ApplicationController < ActionController::Base
   before_action :get_category_nav
   before_action :set_locale
   before_action :configure_permitted_parameters, if: :devise_controller?
-
-  before_action :record_activity
+  after_action :record_activity
 
   private
     def set_locale
@@ -20,25 +19,23 @@ class ApplicationController < ActionController::Base
     end
 
     def record_activity(note = 'default')
-      if !current_admin_user
-        @activity = ActivityLog.new
-       
-        if current_user
-          @activity.user_id = current_user.id 
-          @activity.action = current_user.email
-        else
-          @activity.user_id = 0 
-          @activity.action = 'guest'
-        end
-        @activity.note =  "#{request.host}:#{request.port}#{request.fullpath}"
-        @activity.browser = request.env['HTTP_USER_AGENT']
-        @activity.ip_address = request.env['REMOTE_ADDR']
-        @activity.controller = controller_name
-        @activity.params = params
-        @activity.save
+      if current_admin_user
+        user_id = current_admin_user.email
+        user = 'Admin'
       else
-        # admin's activity not recording
+        if current_user
+          user_id = current_user.email
+          user = current.username
+        else
+          user_id = 'guest'
+          user = 'guest'          
+        end
       end
+      note =  "#{request.host}:#{request.port}#{request.fullpath}"
+      browser = request.env['HTTP_USER_AGENT']
+      ip_address = request.env['REMOTE_ADDR']
+      # Activity.create!(user: current_user, action: note, url: request.original_url)
+      ActivityLog.create!(user_id: user_id, user: user, note: note, browser: browser, ip_address: ip_address, controller:controller_name, action:action_name, params:params)
     end
 
   protected
