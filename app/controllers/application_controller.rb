@@ -21,10 +21,6 @@ class ApplicationController < ActionController::Base
 
     def record_activity(note = 'default')
       if !current_admin_user
-        puts
-        puts
-        puts '???'*50
-        puts current_admin_user
         @activity = ActivityLog.new
        
         if current_user
@@ -34,7 +30,6 @@ class ApplicationController < ActionController::Base
           @activity.user_id = 0 
           @activity.action = 'guest'
         end
-
         @activity.note =  "#{request.host}:#{request.port}#{request.fullpath}"
         @activity.browser = request.env['HTTP_USER_AGENT']
         @activity.ip_address = request.env['REMOTE_ADDR']
@@ -42,10 +37,7 @@ class ApplicationController < ActionController::Base
         @activity.params = params
         @activity.save
       else
-        puts
-        puts
-        puts '!!'*50
-        puts
+        # admin's activity not recording
       end
     end
 
