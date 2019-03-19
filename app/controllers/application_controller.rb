@@ -25,7 +25,7 @@ class ApplicationController < ActionController::Base
       else
         if current_user
           user_id = current_user.email
-          user = current.username
+          user = current_user.username
         else
           user_id = 'guest'
           user = 'guest'          
