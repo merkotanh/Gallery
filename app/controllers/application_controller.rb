@@ -30,12 +30,11 @@ class ApplicationController < ActionController::Base
           user_id = 'guest'
           user = 'guest'          
         end
+        note =  "#{request.host}:#{request.port}#{request.fullpath}"
+        browser = request.env['HTTP_USER_AGENT']
+        ip_address = request.env['REMOTE_ADDR']
+        ActivityLog.create!(user_id: user_id, user: user, note: note, browser: browser, ip_address: ip_address, controller:controller_name, action:action_name, params:params)
       end
-      note =  "#{request.host}:#{request.port}#{request.fullpath}"
-      browser = request.env['HTTP_USER_AGENT']
-      ip_address = request.env['REMOTE_ADDR']
-      # Activity.create!(user: current_user, action: note, url: request.original_url)
-      ActivityLog.create!(user_id: user_id, user: user, note: note, browser: browser, ip_address: ip_address, controller:controller_name, action:action_name, params:params)
     end
 
   protected
