@@ -16,24 +16,4 @@ permit_params :username, :email, :encrypted_password, :reset_password_token, :re
     end
   end
 
-  # show do
-  #   attributes_table do
-  #     row "Avatar" do |user|
-  #       image_tag user.avatar.url(:profile)
-  #     end
-  #   end
-  # end
-
-  # @user.avatar.url(:profile)
-
-
-#
-# or
-#
-# permit_params do
-#   permitted = [:permitted, :attributes]
-#   permitted << :other if params[:action] == 'create' && current_user.admin?
-#   permitted
-# end
-
 end

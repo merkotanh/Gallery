@@ -40,7 +40,7 @@ ActiveAdmin.register_page "Dashboard" do
          panel "Recent Comment" do
           ul do
             @comments.each.map do |comment|
-              li link_to(comment.body,  admin_comment_path(comment))
+              li link_to(comment.body,  admin_user_comment_path(comment))
             end
           end
          end
