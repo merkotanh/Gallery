@@ -23,6 +23,7 @@ Rspec test framework (https://github.com/rspec/rspec-rails)<br />
 <h4>User functionality</h4>
 
 <h5>User may:</h5>
+
  - Register and login.
  - Login via Facbook, Google, GitHub.
  - Recover forgotten password.
@@ -40,6 +41,7 @@ Rspec test framework (https://github.com/rspec/rspec-rails)<br />
  - Watch pictures he has been subscribed to and has uploaded on his profile page.
 
 <h4>Admin panel</h4>
+
  The admin panel is accessible via admin path. An admin user is created separately, which is not related to user functionality. The main page (dashboard) should display:
  - 15 recently created categories,
  - 15 recent comments,
@@ -47,12 +49,14 @@ Rspec test framework (https://github.com/rspec/rspec-rails)<br />
  - actions of all users - users' activities.
 
 <h5>Admin may:</h5>
+
  - Create, edit, delete all application resources. (Categories, images, comments, etc.)
  - Create and delete new administrators.
  - Parse images using nokogiri /admin/ng page.
 
 
 <h4>General</h4>
+
  - The picture should receive 3 copies: 
    Full size - used on / image / show
    Curbstone average - used as a preview on categories / index
