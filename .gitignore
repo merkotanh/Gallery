@@ -35,5 +35,6 @@
 /spec/features/*
 /public/uploads/tmp/*
 /public/uploads/*
-
+/lip/pic/*
+lib/
 config/application.yml

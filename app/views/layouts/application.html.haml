@@ -61,8 +61,7 @@
               %a.nav-link{"data-placement" => "right", "data-toggle" => "tooltip", href: new_message_path, title: t('email_me')}
                 &nbsp;
                 %i.fa.fa-envelope-open
-
-             
+         
     .container-fluid
       - flash.each do |key, value|
         %div{ class: "#{flash_class(key)}"}
