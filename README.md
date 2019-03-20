@@ -3,7 +3,7 @@ Simple gallery
 ruby 2.3+, rails 5+, postgresql, github
 
 Bootstrap user interface framework (https://github.com/twbs/bootstrap-sass)
-haml template engine (https://github.com/indirect/haml-rails)
+Haml template engine (https://github.com/indirect/haml-rails)
 Carrierwave downloads (https://github.com/carrierwaveuploader/carrierwave)
 Device authentication (https://github.com/plataformatec/devise)
 Admin panel ActiveAdmin (https://github.com/activeadmin/activeadmin)
