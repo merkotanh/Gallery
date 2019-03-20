@@ -1,26 +1,26 @@
-Simple gallery 
+<h3>Simple gallery</h3>
 
 ruby 2.3+, rails 5+, postgresql, github
 
-Bootstrap user interface framework (https://github.com/twbs/bootstrap-sass)
-Haml template engine (https://github.com/indirect/haml-rails)
-Carrierwave downloads (https://github.com/carrierwaveuploader/carrierwave)
-Device authentication (https://github.com/plataformatec/devise)
-Admin panel ActiveAdmin (https://github.com/activeadmin/activeadmin)
-Kaminari pagination (https://github.com/kaminari/kaminari)
-Human-readable URL's (https://github.com/norman/friendly_id)
-Dynamic grid layout plugin Masonry (https://github.com/kristianmandrup/masonry-rails)
-Google reCaptcha (https://github.com/ambethia/recaptcha)
-OmniAuth strategy for authenticating to GitHub, Facebook, Google
- (https://github.com/mkdynamic/omniauth-facebook)
- (https://github.com/omniauth/omniauth-oauth2)
- (https://github.com/zquestz/omniauth-google-oauth2)
- (https://github.com/omniauth/omniauth-github)
-Background jobs with gem resque (https://github.com/resque/resque)
-HTML, XML, SAX, and Reader parser (https://github.com/sparklemotion/nokogiri)
-Rspec test framework (https://github.com/rspec/rspec-rails)
+Bootstrap user interface framework (https://github.com/twbs/bootstrap-sass)<br />
+Haml template engine (https://github.com/indirect/haml-rails)<br />
+Carrierwave downloads (https://github.com/carrierwaveuploader/carrierwave)<br />
+Device authentication (https://github.com/plataformatec/devise)<br />
+Admin panel ActiveAdmin (https://github.com/activeadmin/activeadmin)<br />
+Kaminari pagination (https://github.com/kaminari/kaminari)<br />
+Human-readable URL's (https://github.com/norman/friendly_id)<br />
+Dynamic grid layout plugin Masonry (https://github.com/kristianmandrup/masonry-rails)<br />
+Google reCaptcha (https://github.com/ambethia/recaptcha)<br />
+OmniAuth strategy for authenticating to GitHub, Facebook, Google<br />
+ (https://github.com/mkdynamic/omniauth-facebook)<br />
+ (https://github.com/omniauth/omniauth-oauth2)<br />
+ (https://github.com/zquestz/omniauth-google-oauth2)<br />
+ (https://github.com/omniauth/omniauth-github)<br />
+Background jobs with gem resque (https://github.com/resque/resque)<br />
+HTML, XML, SAX, and Reader parser (https://github.com/sparklemotion/nokogiri)<br />
+Rspec test framework (https://github.com/rspec/rspec-rails)<br />
 
-User functionality
+<h4>User functionality</h4>
 
 User may:
  - Register and login.
@@ -39,20 +39,20 @@ User may:
  - Watch anothers' profiles.
  - Watch pictures he has been subscribed to and has uploaded on his profile page.
 
-Admin panel
+<h4>Admin panel</h4>
  The admin panel is accessible via admin path. An admin user is created separately, which is not related to user functionality. The main page (dashboard) should display:
  - 15 recently created categories,
  - 15 recent comments,
  - 15 last uploaded images,
  - actions of all users - users' activities.
 
-Admin can:
+<h4>Admin can:</h4>
  - Create, edit, delete all application resources. (Categories, images, comments, etc.)
  - Create and delete new administrators.
  - Parse images using nokogiri /admin/ng page.
 
 
-General
+<h4>General</h4>
  - The picture should receive 3 copies: 
    Full size - used on / image / show
    Curbstone average - used as a preview on categories / index
