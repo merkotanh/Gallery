@@ -22,7 +22,7 @@ Rspec test framework (https://github.com/rspec/rspec-rails)<br />
 
 <h4>User functionality</h4>
 
-User may:
+<h5>User may:</h5>
  - Register and login.
  - Login via Facbook, Google, GitHub.
  - Recover forgotten password.
@@ -46,7 +46,7 @@ User may:
  - 15 last uploaded images,
  - actions of all users - users' activities.
 
-<h4>Admin can:</h4>
+<h5>Admin may:</h5>
  - Create, edit, delete all application resources. (Categories, images, comments, etc.)
  - Create and delete new administrators.
  - Parse images using nokogiri /admin/ng page.
