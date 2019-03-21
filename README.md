@@ -68,5 +68,5 @@ Rspec test framework (https://github.com/rspec/rspec-rails)<br />
  - images on index page sorted by descending with infinite scrolling. Link to images leads to show image page.
  - All comments (sorted by creation date)
  <br/><br/>
- you may visit it by clicking the link below <br />
- https://radiant-shelf-39196.herokuapp.com/
+<h6>You may visit it by clicking the link below <h6/>
+https://radiant-shelf-39196.herokuapp.com/
