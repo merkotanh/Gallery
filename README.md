@@ -1,4 +1,4 @@
-<h3>Simple gallery</h3>
+<h3>Gallery</h3>
 
 ruby 2.3+, rails 5+, postgresql, github
 
