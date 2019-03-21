@@ -67,6 +67,6 @@ Rspec test framework (https://github.com/rspec/rspec-rails)<br />
  - Categories (it’s also a vertical menu or a drop-down list) - displays the 5 most popular categories. Popular categories are those with the most likes.
  - images on index page sorted by descending with infinite scrolling. Link to images leads to show image page.
  - All comments (sorted by creation date)
- 
- you may visit it by clicking the link below <br / >
+ <br/><br/>
+ you may visit it by clicking the link below <br />
  https://radiant-shelf-39196.herokuapp.com/
