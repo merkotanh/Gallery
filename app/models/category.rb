@@ -9,7 +9,7 @@ class Category < ApplicationRecord
 
   def find_followers(user)
     u = User.find_by id: user.followers.ids if user.followers.ids.any?
-    MyMailer.with(user: u).welcome_email.try.deliver_now
+    MyMailer.with(user: u).some_changes_in_follow(u).deliver_now
   end
 
 end
