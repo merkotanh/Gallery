@@ -2,7 +2,14 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def create
     if verify_recaptcha
       super 
-      MyMailer.welcome_email(current_user).try.deliver_now
+      begin
+        MyMailer.welcome_email(current_user).deliver_now
+      rescue
+      	render(
+          html: "<script>alert('Could not send email!')</script>".html_safe,
+          layout: 'application'
+        )
+      end
     else
       redirect_to new_user_registration_path
     end
