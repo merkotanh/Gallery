@@ -20,7 +20,7 @@ class ImagesController < ApplicationController
     @image = Image.create(image_params)
     
     if @image.save
-      flash[:success] = t('images.created.flash.success')
+      flash[:success] = t('images.create.flash.success')
       redirect_back(fallback_location: root_path)
     else
       render 'new'
@@ -32,9 +32,9 @@ class ImagesController < ApplicationController
 
   def update
     if @image.update(image_params)
-      flash[:success] = t('images.updated.flash.success')
+      flash[:success] = t('images.update.flash.success')
     else
-      flash[:alert] = t('image.updated.flash.error')
+      flash[:alert] = t('image.update.flash.error')
     end
     redirect_to image_path
   end
@@ -42,9 +42,9 @@ class ImagesController < ApplicationController
   def destroy
     if @image.category.user.id == current_user.id
       @image.destroy
-      flash[:notice] = t('images.updated.flash.notice')
+      flash[:notice] = t('images.update.flash.notice')
     else
-      flash[:alert] = t('image.deleted.flash.error')
+      flash[:alert] = t('image.destroy.flash.error')
     end
     redirect_to root_path
   end

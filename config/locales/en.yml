@@ -17,7 +17,7 @@ en:
 
   image:
     edit_image_description: 'Edit image description'
-    images: 'Images'
+    images1: 'Images'
     all_images: 'All images'
     upload_image: 'Upload Image'
     im: 'Image'
