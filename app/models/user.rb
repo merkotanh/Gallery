@@ -64,7 +64,10 @@ class User < ApplicationRecord
 
   def find_followers
     users_following = User.find followers.ids if followers.ids.any?
-    MyMailer.some_changes_in_follow(users_following).deliver_now if users_following != nil
+    begin
+      MyMailer.some_changes_in_follow(users_following).deliver_now if users_following != nil
+    rescue
+    end
   end
 
 end
